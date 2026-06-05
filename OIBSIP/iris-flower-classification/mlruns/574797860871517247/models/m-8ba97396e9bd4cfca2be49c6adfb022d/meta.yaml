@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/iris-flower-classification/mlruns/574797860871517247/models/m-8ba97396e9bd4cfca2be49c6adfb022d/artifacts
+creation_timestamp: 1780640875801
+experiment_id: '574797860871517247'
+last_updated_timestamp: 1780640885585
+model_id: m-8ba97396e9bd4cfca2be49c6adfb022d
+model_type: null
+name: model
+source_run_id: b5bd7f9ae2224a39af324d796e4d06f6
+status: 2
+status_message: null

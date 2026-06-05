@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/iris-flower-classification/mlruns/574797860871517247/4bb74dd747b84d1485e690e384f1b72e/artifacts
+end_time: 1780640831909
+entry_point_name: ''
+experiment_id: '574797860871517247'
+lifecycle_stage: active
+run_id: 4bb74dd747b84d1485e690e384f1b72e
+run_name: logistic_regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780640816818
+status: 3
+tags: []
+user_id: DHRUVIL

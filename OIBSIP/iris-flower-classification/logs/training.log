@@ -1,0 +1,47 @@
+2026-06-05 11:55:52 | INFO | load_raw_data | Loaded dataset shape: (150, 5)
+2026-06-05 11:55:52 | INFO | load_raw_data | Class distribution:
+species
+setosa        50
+versicolor    50
+virginica     50
+2026-06-05 11:55:53 | INFO | preprocess_data | Encoded target labels with classes: ['setosa', 'versicolor', 'virginica']
+2026-06-05 11:55:53 | INFO | preprocess_data | Completed stratified split with train size 120 and test size 30
+2026-06-05 11:55:53 | INFO | preprocess_data | Saved scaler to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\iris-flower-classification\models\scaler.pkl
+2026-06-05 11:56:17 | INFO | load_raw_data | Loaded dataset shape: (150, 5)
+2026-06-05 11:56:17 | INFO | load_raw_data | Class distribution:
+species
+setosa        50
+versicolor    50
+virginica     50
+2026-06-05 11:56:18 | INFO | preprocess_data | Encoded target labels with classes: ['setosa', 'versicolor', 'virginica']
+2026-06-05 11:56:18 | INFO | preprocess_data | Completed stratified split with train size 120 and test size 30
+2026-06-05 11:56:18 | INFO | preprocess_data | Saved scaler to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\iris-flower-classification\models\scaler.pkl
+2026-06-05 11:56:48 | INFO | load_raw_data | Loaded dataset shape: (150, 5)
+2026-06-05 11:56:48 | INFO | load_raw_data | Class distribution:
+species
+setosa        50
+versicolor    50
+virginica     50
+2026-06-05 11:56:48 | INFO | preprocess_data | Encoded target labels with classes: ['setosa', 'versicolor', 'virginica']
+2026-06-05 11:56:48 | INFO | preprocess_data | Completed stratified split with train size 120 and test size 30
+2026-06-05 11:56:48 | INFO | preprocess_data | Saved scaler to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\iris-flower-classification\models\scaler.pkl
+2026-06-05 11:56:48 | INFO | train_models | Training model: logistic_regression
+2026-06-05 11:56:56 | INFO | train_models | logistic_regression -> accuracy=0.9583, precision=0.9644, recall=0.9583, f1=0.9580
+2026-06-05 11:57:11 | INFO | train_models | Training model: decision_tree
+2026-06-05 11:57:16 | INFO | train_models | decision_tree -> accuracy=0.9500, precision=0.9570, recall=0.9500, f1=0.9496
+2026-06-05 11:57:28 | INFO | train_models | Training model: random_forest
+2026-06-05 11:57:34 | INFO | train_models | random_forest -> accuracy=0.9500, precision=0.9585, recall=0.9500, f1=0.9494
+2026-06-05 11:57:45 | INFO | train_models | Training model: svm
+2026-06-05 11:57:45 | INFO | train_models | svm -> accuracy=0.9667, precision=0.9704, recall=0.9667, f1=0.9665
+2026-06-05 11:57:55 | INFO | train_models | Training model: knn
+2026-06-05 11:57:55 | INFO | train_models | knn -> accuracy=0.9583, precision=0.9644, recall=0.9583, f1=0.9580
+2026-06-05 11:58:05 | INFO | train_models | Training model: gradient_boosting
+2026-06-05 11:58:07 | INFO | train_models | gradient_boosting -> accuracy=0.9500, precision=0.9585, recall=0.9500, f1=0.9494
+2026-06-05 11:58:17 | INFO | train_models | Best model: svm with F1=0.9665
+2026-06-05 11:58:17 | INFO | train_models | Saved best model to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\iris-flower-classification\models\best_model.pkl
+2026-06-05 11:58:17 | INFO | train_models | Saved model comparison results to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\iris-flower-classification\data\reports\model_comparison.csv
+2026-06-05 11:58:17 | INFO | main | Training completed successfully: {'best_model_name': 'svm', 'best_model_score': 0.9665359477124185, 'results': [{'model_name': 'logistic_regression', 'accuracy': 0.9583333333333334, 'precision_macro': 0.9644444444444444, 'recall_macro': 0.9583333333333334, 'f1_macro': 0.9579707438530969, 'cv_folds': 5.0}, {'model_name': 'decision_tree', 'accuracy': 0.95, 'precision_macro': 0.9570370370370369, 'recall_macro': 0.95, 'f1_macro': 0.9496047307812013, 'cv_folds': 5.0}, {'model_name': 'random_forest', 'accuracy': 0.95, 'precision_macro': 0.9585185185185183, 'recall_macro': 0.95, 'f1_macro': 0.9494055399937753, 'cv_folds': 5.0}, {'model_name': 'svm', 'accuracy': 0.9666666666666668, 'precision_macro': 0.9703703703703702, 'recall_macro': 0.9666666666666668, 'f1_macro': 0.9665359477124185, 'cv_folds': 5.0}, {'model_name': 'knn', 'accuracy': 0.9583333333333334, 'precision_macro': 0.9644444444444444, 'recall_macro': 0.9583333333333334, 'f1_macro': 0.9579707438530969, 'cv_folds': 5.0}, {'model_name': 'gradient_boosting', 'accuracy': 0.95, 'precision_macro': 0.9585185185185183, 'recall_macro': 0.95, 'f1_macro': 0.9494055399937753, 'cv_folds': 5.0}], 'best_model_path': 'C:\\Users\\DHRUVIL\\OneDrive\\Documents\\Oasis_InfoByte\\OIBSIP\\iris-flower-classification\\models\\best_model.pkl', 'results_path': 'C:\\Users\\DHRUVIL\\OneDrive\\Documents\\Oasis_InfoByte\\OIBSIP\\iris-flower-classification\\data\\reports\\model_comparison.csv'}
+2026-06-05 12:01:06 | INFO | predict_species | Prediction completed: species=setosa confidence=97.02%
+2026-06-05 12:01:06 | INFO | main | Predicted species: setosa | confidence: 97.02%
+2026-06-05 12:07:17 | INFO | predict_species | Prediction completed: species=setosa confidence=93.39%
+2026-06-05 12:07:17 | INFO | main | Predicted species: setosa | confidence: 93.39%

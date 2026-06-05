@@ -1,0 +1,9 @@
+artifact_location: file:///C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/iris-flower-classification/mlruns/574797860871517247
+creation_time: 1780640808813
+effective_trace_archival_retention: null
+experiment_id: '574797860871517247'
+last_update_time: 1780640808813
+lifecycle_stage: active
+name: iris-flower-classification
+trace_location: null
+workspace: default

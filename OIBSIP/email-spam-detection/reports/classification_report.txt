@@ -1,0 +1,16 @@
+=== Classification Metrics ===
+Accuracy: 0.9767
+Precision: 0.9920
+Recall: 0.8322
+F1: 0.9051
+ROC-AUC: 0.9826
+
+=== Detailed Classification Report ===
+              precision    recall  f1-score   support
+
+         ham       0.97      1.00      0.99       966
+        spam       0.99      0.83      0.91       149
+
+    accuracy                           0.98      1115
+   macro avg       0.98      0.92      0.95      1115
+weighted avg       0.98      0.98      0.98      1115

@@ -1,0 +1,256 @@
+2026-06-06 19:09:05,366 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\logs\run.log
+2026-06-06 19:09:05,368 - main - INFO - Starting training pipeline...
+2026-06-06 19:09:05,368 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-06 19:09:05,377 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-06 19:09:05,377 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-06 19:09:05,403 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-06 19:09:05,403 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-06 19:09:05,404 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-06 19:09:05,409 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-06 19:09:05,410 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-06 19:09:05,413 - src.data_loader - INFO - Class distribution:
+2026-06-06 19:09:05,413 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-06 19:09:05,413 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-06 19:09:05,413 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-06 19:09:05,912 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-06 19:09:05,924 - main - INFO - Splitting data with test_size=0.2, random_state=42
+2026-06-06 19:09:05,963 - src.feature_engineering - INFO - Building TF-IDF Vectorizer with max_features=5000, ngram_range=(1, 2)
+2026-06-06 19:09:05,963 - src.model - INFO - Initializing models for training...
+2026-06-06 19:09:05,965 - src.model - INFO - Evaluating MultinomialNB with 5-fold cross-validation...
+2026-06-06 19:09:10,363 - src.model - INFO - MultinomialNB 5-Fold CV F1-Score: 0.8625 (+/- 0.0329)
+2026-06-06 19:09:10,363 - src.model - INFO - Evaluating LogisticRegression with 5-fold cross-validation...
+2026-06-06 19:09:13,763 - src.model - INFO - LogisticRegression 5-Fold CV F1-Score: 0.8439 (+/- 0.0377)
+2026-06-06 19:09:13,764 - src.model - INFO - Evaluating RandomForest with 5-fold cross-validation...
+2026-06-06 19:09:18,316 - src.model - INFO - RandomForest 5-Fold CV F1-Score: 0.9009 (+/- 0.0196)
+2026-06-06 19:09:18,316 - src.model - INFO - Best model selected: RandomForest with F1-score: 0.9009
+2026-06-06 19:09:18,317 - src.model - INFO - Fitting RandomForest pipeline on the full training dataset...
+2026-06-06 19:09:19,507 - src.model - INFO - Saving best model classifier to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\best_model.joblib...
+2026-06-06 19:09:19,554 - src.model - INFO - Saving tfidf vectorizer to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-06 19:09:19,653 - main - INFO - Training pipeline completed. CV Scores: {'MultinomialNB': 0.8624954647675972, 'LogisticRegression': 0.8438820578847815, 'RandomForest': 0.9008982015367334}
+2026-06-06 19:09:51,734 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\logs\run.log
+2026-06-06 19:09:51,734 - main - INFO - Starting evaluation pipeline...
+2026-06-06 19:09:51,734 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\best_model.joblib...
+2026-06-06 19:09:51,775 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-06 19:09:51,810 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-06 19:09:51,817 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-06 19:09:51,817 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-06 19:09:51,831 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-06 19:09:51,831 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-06 19:09:51,831 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-06 19:09:51,835 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-06 19:09:51,836 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-06 19:09:51,838 - src.data_loader - INFO - Class distribution:
+2026-06-06 19:09:51,838 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-06 19:09:51,838 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-06 19:09:51,838 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-06 19:09:52,364 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-06 19:09:52,394 - src.evaluate - INFO - Starting model evaluation...
+2026-06-06 19:09:52,396 - src.evaluate - INFO - Transforming test data...
+2026-06-06 19:09:52,503 - src.evaluate - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+         ham       0.97      1.00      0.99       966
+        spam       0.99      0.83      0.91       149
+
+    accuracy                           0.98      1115
+   macro avg       0.98      0.92      0.95      1115
+weighted avg       0.98      0.98      0.98      1115
+
+2026-06-06 19:09:52,504 - src.evaluate - INFO - Saving classification report text to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\reports\classification_report.txt...
+2026-06-06 19:09:52,792 - src.evaluate - INFO - Confusion matrix plot saved to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\reports\confusion_matrix.png
+2026-06-06 19:09:52,948 - src.evaluate - INFO - ROC curve plot saved to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\reports\roc_curve.png
+2026-06-06 19:09:52,949 - main - INFO - Evaluation pipeline completed. Test metrics: {'Accuracy': 0.9766816143497757, 'Precision': 0.992, 'Recall': 0.8322147651006712, 'F1': 0.9051094890510949, 'ROC-AUC': 0.9826170328067031}
+2026-06-06 19:10:21,955 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\logs\run.log
+2026-06-06 19:10:21,955 - main - INFO - Starting prediction/inference...
+2026-06-06 19:10:21,955 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\best_model.joblib...
+2026-06-06 19:10:21,984 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-06 19:10:22,006 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-06 19:10:22,013 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-06 19:10:22,028 - src.predict - INFO - Prediction complete. Label: Ham, Confidence: 0.5900
+2026-06-06 19:10:59,924 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\logs\run.log
+2026-06-06 19:10:59,925 - main - INFO - Starting prediction/inference...
+2026-06-06 19:10:59,925 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\best_model.joblib...
+2026-06-06 19:10:59,953 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\.gemini\antigravity\scratch\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-06 19:10:59,975 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-06 19:10:59,982 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-06 19:10:59,998 - src.predict - INFO - Prediction complete. Label: Spam, Confidence: 0.9800
+2026-06-07 10:15:53,101 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:15:53,102 - main - INFO - Starting training pipeline...
+2026-06-07 10:15:53,103 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-07 10:15:53,146 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-07 10:15:53,147 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-07 10:15:53,176 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-07 10:15:53,177 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-07 10:15:53,177 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-07 10:15:53,199 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-07 10:15:53,203 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-07 10:15:53,213 - src.data_loader - INFO - Class distribution:
+2026-06-07 10:15:53,213 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-07 10:15:53,214 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-07 10:15:53,215 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-07 10:15:54,202 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:15:54,222 - main - INFO - Splitting data with test_size=0.2, random_state=42
+2026-06-07 10:15:54,299 - src.feature_engineering - INFO - Building TF-IDF Vectorizer with max_features=5000, ngram_range=(1, 2)
+2026-06-07 10:15:54,300 - src.model - INFO - Initializing models for training...
+2026-06-07 10:15:54,302 - src.model - INFO - Evaluating MultinomialNB with 5-fold cross-validation...
+2026-06-07 10:16:00,466 - src.model - INFO - MultinomialNB 5-Fold CV F1-Score: 0.8625 (+/- 0.0329)
+2026-06-07 10:16:00,467 - src.model - INFO - Evaluating LogisticRegression with 5-fold cross-validation...
+2026-06-07 10:16:04,856 - src.model - INFO - LogisticRegression 5-Fold CV F1-Score: 0.8439 (+/- 0.0377)
+2026-06-07 10:16:04,857 - src.model - INFO - Evaluating RandomForest with 5-fold cross-validation...
+2026-06-07 10:16:10,814 - src.model - INFO - RandomForest 5-Fold CV F1-Score: 0.9009 (+/- 0.0196)
+2026-06-07 10:16:10,815 - src.model - INFO - Best model selected: RandomForest with F1-score: 0.9009
+2026-06-07 10:16:10,815 - src.model - INFO - Fitting RandomForest pipeline on the full training dataset...
+2026-06-07 10:16:12,800 - src.model - INFO - Saving best model classifier to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:16:12,879 - src.model - INFO - Saving tfidf vectorizer to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:16:13,007 - main - INFO - Training pipeline completed. CV Scores: {'MultinomialNB': 0.8624954647675972, 'LogisticRegression': 0.8438820578847815, 'RandomForest': 0.9008982015367334}
+2026-06-07 10:20:38,190 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:20:38,191 - main - INFO - Starting evaluation pipeline...
+2026-06-07 10:20:38,191 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:20:38,279 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:20:38,347 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-07 10:20:38,360 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-07 10:20:38,360 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-07 10:20:38,383 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-07 10:20:38,383 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-07 10:20:38,384 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-07 10:20:38,391 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-07 10:20:38,394 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-07 10:20:38,398 - src.data_loader - INFO - Class distribution:
+2026-06-07 10:20:38,399 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-07 10:20:38,399 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-07 10:20:38,400 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-07 10:20:39,426 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:20:39,477 - src.evaluate - INFO - Starting model evaluation...
+2026-06-07 10:20:39,479 - src.evaluate - INFO - Transforming test data...
+2026-06-07 10:20:39,723 - src.evaluate - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+         ham       0.97      1.00      0.99       966
+        spam       0.99      0.83      0.91       149
+
+    accuracy                           0.98      1115
+   macro avg       0.98      0.92      0.95      1115
+weighted avg       0.98      0.98      0.98      1115
+
+2026-06-07 10:20:39,723 - src.evaluate - INFO - Saving classification report text to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\reports\classification_report.txt...
+2026-06-07 10:20:40,219 - src.evaluate - INFO - Confusion matrix plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\reports\confusion_matrix.png
+2026-06-07 10:20:40,550 - src.evaluate - INFO - ROC curve plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\reports\roc_curve.png
+2026-06-07 10:20:40,551 - main - INFO - Evaluation pipeline completed. Test metrics: {'Accuracy': 0.9766816143497757, 'Precision': 0.992, 'Recall': 0.8322147651006712, 'F1': 0.9051094890510949, 'ROC-AUC': 0.9826170328067031}
+2026-06-07 10:21:02,084 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:21:02,085 - main - INFO - Starting prediction/inference...
+2026-06-07 10:21:02,086 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:21:02,150 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:21:02,207 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-07 10:21:02,260 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:21:02,296 - src.predict - INFO - Prediction complete. Label: Spam, Confidence: 0.9200
+2026-06-07 10:21:21,684 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:21:21,685 - main - INFO - Starting prediction/inference...
+2026-06-07 10:21:21,685 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:21:21,754 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:21:21,804 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-07 10:21:21,816 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:21:21,852 - src.predict - INFO - Prediction complete. Label: Ham, Confidence: 0.9800
+2026-06-07 10:21:55,669 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:21:55,670 - main - INFO - Starting prediction/inference...
+2026-06-07 10:21:55,671 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:21:55,735 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:21:55,792 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-07 10:21:55,807 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:21:55,847 - src.predict - INFO - Prediction complete. Label: Ham, Confidence: 0.9800
+2026-06-07 10:27:08,177 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:27:08,178 - main - INFO - Starting training pipeline...
+2026-06-07 10:27:08,179 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-07 10:27:08,231 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-07 10:27:08,231 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-07 10:27:08,253 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-07 10:27:08,254 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-07 10:27:08,254 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-07 10:27:08,260 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-07 10:27:08,265 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-07 10:27:08,268 - src.data_loader - INFO - Class distribution:
+2026-06-07 10:27:08,268 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-07 10:27:08,269 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-07 10:27:08,270 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-07 10:27:09,268 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:27:09,270 - main - INFO - Splitting data with test_size=0.2, random_state=42
+2026-06-07 10:27:09,322 - src.feature_engineering - INFO - Building TF-IDF Vectorizer with max_features=5000, ngram_range=(1, 2)
+2026-06-07 10:27:09,322 - src.model - INFO - Initializing models for training...
+2026-06-07 10:27:09,324 - src.model - INFO - Evaluating MultinomialNB with 5-fold cross-validation...
+2026-06-07 10:27:15,319 - src.model - INFO - MultinomialNB 5-Fold CV F1-Score: 0.8625 (+/- 0.0329)
+2026-06-07 10:27:15,319 - src.model - INFO - Evaluating LogisticRegression with 5-fold cross-validation...
+2026-06-07 10:27:19,785 - src.model - INFO - LogisticRegression 5-Fold CV F1-Score: 0.8439 (+/- 0.0377)
+2026-06-07 10:27:19,785 - src.model - INFO - Evaluating RandomForest with 5-fold cross-validation...
+2026-06-07 10:27:25,747 - src.model - INFO - RandomForest 5-Fold CV F1-Score: 0.9009 (+/- 0.0196)
+2026-06-07 10:27:25,748 - src.model - INFO - Best model selected: RandomForest with F1-score: 0.9009
+2026-06-07 10:27:25,748 - src.model - INFO - Fitting RandomForest pipeline on the full training dataset...
+2026-06-07 10:27:27,963 - src.model - INFO - Saving best model classifier to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:27:28,056 - src.model - INFO - Saving tfidf vectorizer to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:27:28,185 - main - INFO - Training pipeline completed. CV Scores: {'MultinomialNB': 0.8624954647675972, 'LogisticRegression': 0.8438820578847815, 'RandomForest': 0.9008982015367334}
+2026-06-07 10:27:56,959 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:27:56,960 - main - INFO - Starting evaluation pipeline...
+2026-06-07 10:27:56,960 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:27:57,046 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:27:57,112 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-07 10:27:57,123 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-07 10:27:57,123 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-07 10:27:57,145 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-07 10:27:57,146 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-07 10:27:57,146 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-07 10:27:57,152 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-07 10:27:57,157 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-07 10:27:57,162 - src.data_loader - INFO - Class distribution:
+2026-06-07 10:27:57,162 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-07 10:27:57,163 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-07 10:27:57,163 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-07 10:27:58,189 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:27:58,238 - src.evaluate - INFO - Starting model evaluation...
+2026-06-07 10:27:58,240 - src.evaluate - INFO - Transforming test data...
+2026-06-07 10:27:58,546 - src.evaluate - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+         ham       0.97      1.00      0.99       966
+        spam       0.99      0.83      0.91       149
+
+    accuracy                           0.98      1115
+   macro avg       0.98      0.92      0.95      1115
+weighted avg       0.98      0.98      0.98      1115
+
+2026-06-07 10:27:58,547 - src.evaluate - INFO - Saving classification report text to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\reports\classification_report.txt...
+2026-06-07 10:27:58,940 - src.evaluate - INFO - Confusion matrix plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\reports\confusion_matrix.png
+2026-06-07 10:27:59,213 - src.evaluate - INFO - ROC curve plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\reports\roc_curve.png
+2026-06-07 10:27:59,213 - main - INFO - Evaluation pipeline completed. Test metrics: {'Accuracy': 0.9766816143497757, 'Precision': 0.992, 'Recall': 0.8322147651006712, 'F1': 0.9051094890510949, 'ROC-AUC': 0.9826170328067031}
+2026-06-07 10:28:22,323 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:28:22,324 - main - INFO - Starting prediction/inference...
+2026-06-07 10:28:22,324 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:28:22,387 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:28:22,442 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-07 10:28:22,458 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:28:22,501 - src.predict - INFO - Prediction complete. Label: Ham, Confidence: 0.9800
+2026-06-07 10:28:35,302 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\logs\run.log
+2026-06-07 10:28:35,304 - main - INFO - Starting prediction/inference...
+2026-06-07 10:28:35,305 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\best_model.joblib...
+2026-06-07 10:28:35,376 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\email-spam-detection\models\tfidf_vectorizer.joblib...
+2026-06-07 10:28:35,427 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-07 10:28:35,440 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-07 10:28:35,490 - src.predict - INFO - Prediction complete. Label: Spam, Confidence: 0.9200

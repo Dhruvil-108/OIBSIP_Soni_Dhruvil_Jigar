@@ -1,0 +1,23 @@
+# Task Checklist: Sales Prediction ML System
+
+- [x] Move `Advertising.csv` to `data/` directory
+- [x] Create `requirements.txt` with pinned versions
+- [x] Create `src/__init__.py`
+- [x] Create `src/config.py` with Path configurations
+- [x] Create `src/data_loader.py` with schema detection
+- [x] Create `src/preprocessor.py` with imputation and IQR outlier capping
+- [x] Create `src/feature_engineering.py` with scaling comparison, interactions, and correlation filtering
+- [x] Create `src/model.py` with regression pipelines, cross-validation, and GridSearchCV tuning
+- [x] Create `src/evaluate.py` with MSE/MAE/RMSE/R2 metrics and visualization generation
+- [x] Create `src/predict.py` with input validation and inference API
+- [x] Create `main.py` command-line entrypoint with argparse and logs configuration
+- [x] Create `notebooks/01_EDA.ipynb` walkthrough
+- [x] Create `tests/test_pipeline.py` pytest suite
+- [x] Create `README.md` documentation
+- [x] Create `RUNNING_GUIDE.md` user guide
+- [x] Pipeline verification:
+  - [x] Dependency installation (`pip install -r requirements.txt`)
+  - [x] Run model training pipeline (`python main.py --train`)
+  - [x] Run model evaluation pipeline (`python main.py --evaluate`)
+  - [x] Run prediction CLI (`python main.py --predict '{"TV": 230.1, "Radio": 37.8, "Newspaper": 69.2}'`)
+  - [x] Run unit and integration tests (`pytest tests/`)

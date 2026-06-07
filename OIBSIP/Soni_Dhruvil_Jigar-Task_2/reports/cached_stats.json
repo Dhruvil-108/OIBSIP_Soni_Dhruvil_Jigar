@@ -1,0 +1,56 @@
+{
+    "overall_mean": 11.787945945945943,
+    "overall_median": 8.35,
+    "overall_std": 10.721298373157788,
+    "pre_covid_mean": 9.509533582089553,
+    "pre_covid_median": 7.115,
+    "post_covid_mean": 17.77436274509804,
+    "post_covid_median": 14.52,
+    "peak_unemployment_month": "May 2020",
+    "peak_unemployment_date_str": "2020-05-31",
+    "peak_unemployment_rate": 24.875294117647062,
+    "top_5_affected_covid_regions": [
+        "Puducherry",
+        "Jharkhand",
+        "Haryana",
+        "Bihar",
+        "Tripura"
+    ],
+    "highest_spike_region": "Puducherry",
+    "highest_spike_value": 37.36200000000001,
+    "pre_covid_national_mean": 9.509533582089553,
+    "post_covid_national_mean": 17.77436274509804,
+    "national_percentage_increase": 86.91098350580128,
+    "top_5_highest_unemployment": [
+        "Tripura",
+        "Haryana",
+        "Jharkhand",
+        "Bihar",
+        "Himachal Pradesh"
+    ],
+    "top_5_highest_rates": [
+        28.350357142857142,
+        26.283214285714283,
+        20.585,
+        18.91821428571429,
+        18.540357142857143
+    ],
+    "top_5_lowest_unemployment": [
+        "Meghalaya",
+        "Odisha",
+        "Assam",
+        "Uttarakhand",
+        "Gujarat"
+    ],
+    "top_5_lowest_rates": [
+        4.7988888888888885,
+        5.657857142857142,
+        6.428076923076923,
+        6.582962962962963,
+        6.663928571428571
+    ],
+    "highest_pct_increase_region": "Puducherry",
+    "highest_pct_increase_val": 2345.3860640301327,
+    "rural_mean": 10.324791086350974,
+    "urban_mean": 13.166614173228345
+}

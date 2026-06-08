@@ -1,0 +1,23 @@
+artifact_path: file:///C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/iris-flower-classification/mlruns/574797860871517247/models/m-07b809e6bcb64a56a90f1e7c459b5a0c/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.4
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+mlflow_version: 3.13.0
+model_id: m-07b809e6bcb64a56a90f1e7c459b5a0c
+model_size_bytes: 7294
+model_uuid: m-07b809e6bcb64a56a90f1e7c459b5a0c
+prompts: null
+run_id: 3f81a9fbe4734fe4b0c30406394a67b4
+utc_time_created: '2026-06-07 11:34:21.114788'

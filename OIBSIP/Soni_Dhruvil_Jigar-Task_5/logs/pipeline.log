@@ -154,3 +154,141 @@ max       27.000000
   "predicted_sales": 22.0774,
   "model_used": "XGBRegressor"
 }
+2026-06-08 10:57:54,837 [INFO] main: Initializing Sales Prediction ML Pipeline CLI...
+2026-06-08 10:57:54,893 [INFO] main: --- Execution Stage: TRAINING ---
+2026-06-08 10:58:04,390 [INFO] src.data_loader: Auto-detected CSV file: Advertising.csv
+2026-06-08 10:58:04,463 [INFO] src.data_loader: Dropped index columns: ['Unnamed: 0']
+2026-06-08 10:58:04,467 [INFO] src.data_loader: Dataset shape: (200, 4)
+2026-06-08 10:58:04,470 [INFO] src.data_loader: Dataset column types:
+TV           float64
+Radio        float64
+Newspaper    float64
+Sales        float64
+2026-06-08 10:58:04,473 [INFO] src.data_loader: Null counts:
+TV           0
+Radio        0
+Newspaper    0
+Sales        0
+2026-06-08 10:58:04,473 [INFO] src.data_loader: Auto-detected target variable column: 'Sales'
+2026-06-08 10:58:04,493 [INFO] src.data_loader: Target (Sales) variable distribution summary:
+count    200.000000
+mean      14.022500
+std        5.217457
+min        1.600000
+25%       10.375000
+50%       12.900000
+75%       17.400000
+max       27.000000
+2026-06-08 10:58:04,494 [INFO] src.model: Splitting dataset into train and test sets...
+2026-06-08 10:58:04,503 [INFO] src.preprocessor: Fitting data preprocessor...
+2026-06-08 10:58:04,511 [INFO] src.preprocessor: Numeric features detected: ['TV', 'Radio', 'Newspaper']
+2026-06-08 10:58:04,512 [INFO] src.preprocessor: Categorical features detected: []
+2026-06-08 10:58:04,518 [INFO] src.preprocessor: Outlier bounds for 'TV': (-133.86249999999998, 430.4375)
+2026-06-08 10:58:04,522 [INFO] src.preprocessor: Outlier bounds for 'Radio': (-30.075, 76.32499999999999)
+2026-06-08 10:58:04,525 [INFO] src.preprocessor: Outlier bounds for 'Newspaper': (-34.5625, 91.9375)
+2026-06-08 10:58:04,538 [INFO] src.preprocessor: Capped 1 outliers in column 'Newspaper'
+2026-06-08 10:58:04,547 [INFO] src.preprocessor: Capped 1 outliers in column 'Newspaper'
+2026-06-08 10:58:04,548 [INFO] src.feature_engineering: Starting feature engineering fit...
+2026-06-08 10:58:04,553 [INFO] src.feature_engineering: Created feature 'TV_Radio_interaction' (TV * Radio)
+2026-06-08 10:58:04,557 [INFO] src.feature_engineering: Created feature 'total_ad_spend' (sum of ['TV', 'Radio', 'Newspaper'])
+2026-06-08 10:58:04,562 [INFO] src.feature_engineering: No highly correlated features (> 0.95) detected.
+2026-06-08 10:58:04,562 [INFO] src.feature_engineering: Final feature columns: ['TV', 'Radio', 'Newspaper', 'TV_Radio_interaction', 'total_ad_spend']
+2026-06-08 10:58:04,656 [INFO] src.feature_engineering: --- Scaler Comparison ---
+2026-06-08 10:58:04,656 [INFO] src.feature_engineering: Feature 'TV': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:58:04,657 [INFO] src.feature_engineering: Feature 'Radio': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:58:04,657 [INFO] src.feature_engineering: Feature 'Newspaper': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:58:04,657 [INFO] src.feature_engineering: Feature 'TV_Radio_interaction': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:58:04,658 [INFO] src.feature_engineering: Feature 'total_ad_spend': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:58:04,659 [INFO] src.feature_engineering: Selected StandardScaler for the pipeline.
+2026-06-08 10:58:04,660 [INFO] src.feature_engineering: Created feature 'TV_Radio_interaction' (TV * Radio)
+2026-06-08 10:58:04,664 [INFO] src.feature_engineering: Created feature 'total_ad_spend' (sum of ['TV', 'Radio', 'Newspaper'])
+2026-06-08 10:58:04,665 [INFO] src.feature_engineering: Created feature 'TV_Radio_interaction' (TV * Radio)
+2026-06-08 10:58:04,668 [INFO] src.feature_engineering: Created feature 'total_ad_spend' (sum of ['TV', 'Radio', 'Newspaper'])
+2026-06-08 10:58:04,683 [INFO] src.model: Saved fitted preprocessor, feature engineer, and scaler states.
+2026-06-08 10:58:04,684 [INFO] src.model: --- Starting Baseline Model Cross-Validation ---
+2026-06-08 10:58:14,772 [INFO] src.model: Linear Regression - Mean R2: 0.9571 (Std: 0.0283)
+2026-06-08 10:58:20,971 [INFO] src.model: Ridge Regression - Mean R2: 0.9569 (Std: 0.0286)
+2026-06-08 10:58:25,674 [INFO] src.model: Lasso Regression - Mean R2: 0.9101 (Std: 0.0493)
+2026-06-08 10:58:26,356 [INFO] src.model: Random Forest - Mean R2: 0.9835 (Std: 0.0110)
+2026-06-08 10:58:26,679 [INFO] src.model: XGBoost - Mean R2: 0.9822 (Std: 0.0083)
+2026-06-08 10:58:26,680 [INFO] src.model: Top 2 models selected for tuning: ['Random Forest', 'XGBoost']
+2026-06-08 10:58:26,680 [INFO] src.model: Tuning Random Forest with GridSearchCV...
+2026-06-08 10:58:31,514 [INFO] src.model: Random Forest Best Params: {'regressor__max_depth': None, 'regressor__min_samples_split': 2, 'regressor__n_estimators': 200}
+2026-06-08 10:58:31,515 [INFO] src.model: Random Forest Tuned CV R2: 0.9836
+2026-06-08 10:58:31,515 [INFO] src.model: Tuning XGBoost with GridSearchCV...
+2026-06-08 10:58:33,470 [INFO] src.model: XGBoost Best Params: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 5, 'regressor__n_estimators': 100}
+2026-06-08 10:58:33,471 [INFO] src.model: XGBoost Tuned CV R2: 0.9838
+2026-06-08 10:58:33,472 [INFO] src.model: Best overall model: XGBoost with CV R2 = 0.9838
+2026-06-08 10:58:33,644 [INFO] src.model: Best model pipeline saved to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_5\models\best_model.joblib
+2026-06-08 10:58:33,646 [INFO] main: Training stage completed successfully.
+2026-06-08 10:58:53,319 [INFO] main: Initializing Sales Prediction ML Pipeline CLI...
+2026-06-08 10:58:53,354 [INFO] main: --- Execution Stage: EVALUATION ---
+2026-06-08 10:59:01,070 [INFO] src.data_loader: Auto-detected CSV file: Advertising.csv
+2026-06-08 10:59:01,079 [INFO] src.data_loader: Dropped index columns: ['Unnamed: 0']
+2026-06-08 10:59:01,080 [INFO] src.data_loader: Dataset shape: (200, 4)
+2026-06-08 10:59:01,082 [INFO] src.data_loader: Dataset column types:
+TV           float64
+Radio        float64
+Newspaper    float64
+Sales        float64
+2026-06-08 10:59:01,084 [INFO] src.data_loader: Null counts:
+TV           0
+Radio        0
+Newspaper    0
+Sales        0
+2026-06-08 10:59:01,084 [INFO] src.data_loader: Auto-detected target variable column: 'Sales'
+2026-06-08 10:59:01,090 [INFO] src.data_loader: Target (Sales) variable distribution summary:
+count    200.000000
+mean      14.022500
+std        5.217457
+min        1.600000
+25%       10.375000
+50%       12.900000
+75%       17.400000
+max       27.000000
+2026-06-08 10:59:01,091 [INFO] src.model: Splitting dataset into train and test sets...
+2026-06-08 10:59:01,094 [INFO] src.preprocessor: Fitting data preprocessor...
+2026-06-08 10:59:01,100 [INFO] src.preprocessor: Numeric features detected: ['TV', 'Radio', 'Newspaper']
+2026-06-08 10:59:01,102 [INFO] src.preprocessor: Categorical features detected: []
+2026-06-08 10:59:01,107 [INFO] src.preprocessor: Outlier bounds for 'TV': (-133.86249999999998, 430.4375)
+2026-06-08 10:59:01,112 [INFO] src.preprocessor: Outlier bounds for 'Radio': (-30.075, 76.32499999999999)
+2026-06-08 10:59:01,115 [INFO] src.preprocessor: Outlier bounds for 'Newspaper': (-34.5625, 91.9375)
+2026-06-08 10:59:01,131 [INFO] src.preprocessor: Capped 1 outliers in column 'Newspaper'
+2026-06-08 10:59:01,145 [INFO] src.preprocessor: Capped 1 outliers in column 'Newspaper'
+2026-06-08 10:59:01,146 [INFO] src.feature_engineering: Starting feature engineering fit...
+2026-06-08 10:59:01,150 [INFO] src.feature_engineering: Created feature 'TV_Radio_interaction' (TV * Radio)
+2026-06-08 10:59:01,153 [INFO] src.feature_engineering: Created feature 'total_ad_spend' (sum of ['TV', 'Radio', 'Newspaper'])
+2026-06-08 10:59:01,160 [INFO] src.feature_engineering: No highly correlated features (> 0.95) detected.
+2026-06-08 10:59:01,163 [INFO] src.feature_engineering: Final feature columns: ['TV', 'Radio', 'Newspaper', 'TV_Radio_interaction', 'total_ad_spend']
+2026-06-08 10:59:01,220 [INFO] src.feature_engineering: --- Scaler Comparison ---
+2026-06-08 10:59:01,221 [INFO] src.feature_engineering: Feature 'TV': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:59:01,221 [INFO] src.feature_engineering: Feature 'Radio': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:59:01,222 [INFO] src.feature_engineering: Feature 'Newspaper': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:59:01,222 [INFO] src.feature_engineering: Feature 'TV_Radio_interaction': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:59:01,223 [INFO] src.feature_engineering: Feature 'total_ad_spend': StandardScaler Var=1.0000 | MinMaxScaler Range=[0.0, 1.0]
+2026-06-08 10:59:01,223 [INFO] src.feature_engineering: Selected StandardScaler for the pipeline.
+2026-06-08 10:59:01,225 [INFO] src.feature_engineering: Created feature 'TV_Radio_interaction' (TV * Radio)
+2026-06-08 10:59:01,228 [INFO] src.feature_engineering: Created feature 'total_ad_spend' (sum of ['TV', 'Radio', 'Newspaper'])
+2026-06-08 10:59:01,229 [INFO] src.feature_engineering: Created feature 'TV_Radio_interaction' (TV * Radio)
+2026-06-08 10:59:01,232 [INFO] src.feature_engineering: Created feature 'total_ad_spend' (sum of ['TV', 'Radio', 'Newspaper'])
+2026-06-08 10:59:01,244 [INFO] src.model: Saved fitted preprocessor, feature engineer, and scaler states.
+2026-06-08 10:59:01,245 [INFO] src.evaluate: Evaluating model on test set...
+2026-06-08 10:59:01,258 [INFO] src.evaluate: Metrics: MAE=0.5822, MSE=0.5070, RMSE=0.7120, R2=0.9839, Adj R2=0.9816
+2026-06-08 10:59:01,273 [INFO] src.evaluate: Saved model metrics to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_5\reports\model_metrics.csv
+2026-06-08 10:59:04,601 [INFO] src.evaluate: Saved Actual vs Predicted plot to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_5\reports\figures\actual_vs_predicted.png
+2026-06-08 10:59:05,575 [INFO] src.evaluate: Saved Residual plot to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_5\reports\figures\residual_plot.png
+2026-06-08 10:59:06,440 [INFO] src.evaluate: Saved Feature Importance plot to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_5\reports\figures\feature_importance.png
+2026-06-08 10:59:18,484 [INFO] src.evaluate: Saved Learning Curve plot to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_5\reports\figures\learning_curve.png
+2026-06-08 10:59:18,484 [INFO] main: Evaluation stage completed successfully.
+2026-06-08 11:00:23,507 [INFO] main: Initializing Sales Prediction ML Pipeline CLI...
+2026-06-08 11:00:36,548 [INFO] main: Initializing Sales Prediction ML Pipeline CLI...
+2026-06-08 11:00:36,586 [INFO] main: --- Execution Stage: INFERENCE ---
+2026-06-08 11:00:41,985 [INFO] src.predict: Received prediction request for: {'TV': 230.1, 'Radio': 37.8, 'Newspaper': 69.2}
+2026-06-08 11:00:42,364 [INFO] src.predict: Successfully loaded separate scaler.
+2026-06-08 11:00:42,376 [INFO] src.feature_engineering: Created feature 'TV_Radio_interaction' (TV * Radio)
+2026-06-08 11:00:42,379 [INFO] src.feature_engineering: Created feature 'total_ad_spend' (sum of ['TV', 'Radio', 'Newspaper'])
+2026-06-08 11:00:42,443 [INFO] src.predict: Prediction result: {'predicted_sales': 22.0774, 'model_used': 'XGBRegressor'}
+2026-06-08 11:00:42,444 [INFO] main: Prediction output: {
+  "predicted_sales": 22.0774,
+  "model_used": "XGBRegressor"
+}

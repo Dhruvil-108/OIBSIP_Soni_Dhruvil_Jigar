@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/iris-flower-classification/mlruns/574797860871517247/31d338e149cb4f62bed5e1819d81fbc8/artifacts
+end_time: 1780832301042
+entry_point_name: ''
+experiment_id: '574797860871517247'
+lifecycle_stage: active
+run_id: 31d338e149cb4f62bed5e1819d81fbc8
+run_name: gradient_boosting
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780832290469
+status: 3
+tags: []
+user_id: DHRUVIL

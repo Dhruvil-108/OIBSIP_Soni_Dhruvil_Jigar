@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/iris-flower-classification/mlruns/574797860871517247/97d6cea7394c42eb9d17df5e4aa1c4f1/artifacts
+end_time: 1780832247459
+entry_point_name: ''
+experiment_id: '574797860871517247'
+lifecycle_stage: active
+run_id: 97d6cea7394c42eb9d17df5e4aa1c4f1
+run_name: decision_tree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780832236515
+status: 3
+tags: []
+user_id: DHRUVIL

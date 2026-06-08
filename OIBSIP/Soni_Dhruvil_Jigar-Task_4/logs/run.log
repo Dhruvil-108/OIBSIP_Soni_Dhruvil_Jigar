@@ -254,3 +254,155 @@ weighted avg       0.98      0.98      0.98      1115
 2026-06-07 10:28:35,427 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
 2026-06-07 10:28:35,440 - src.preprocessor - INFO - Preprocessing complete.
 2026-06-07 10:28:35,490 - src.predict - INFO - Prediction complete. Label: Spam, Confidence: 0.9200
+2026-06-08 10:45:24,953 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\logs\run.log
+2026-06-08 10:45:24,955 - main - INFO - Starting training pipeline...
+2026-06-08 10:45:24,956 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-08 10:45:25,017 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-08 10:45:25,018 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-08 10:45:25,053 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-08 10:45:25,053 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-08 10:45:25,054 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-08 10:45:25,091 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-08 10:45:25,096 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-08 10:45:25,111 - src.data_loader - INFO - Class distribution:
+2026-06-08 10:45:25,112 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-08 10:45:25,112 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-08 10:45:25,113 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-08 10:45:26,331 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-08 10:45:26,343 - main - INFO - Splitting data with test_size=0.2, random_state=42
+2026-06-08 10:45:26,470 - src.feature_engineering - INFO - Building TF-IDF Vectorizer with max_features=5000, ngram_range=(1, 2)
+2026-06-08 10:45:26,471 - src.model - INFO - Initializing models for training...
+2026-06-08 10:45:26,474 - src.model - INFO - Evaluating MultinomialNB with 5-fold cross-validation...
+2026-06-08 10:45:36,696 - src.model - INFO - MultinomialNB 5-Fold CV F1-Score: 0.8625 (+/- 0.0329)
+2026-06-08 10:45:36,697 - src.model - INFO - Evaluating LogisticRegression with 5-fold cross-validation...
+2026-06-08 10:45:43,928 - src.model - INFO - LogisticRegression 5-Fold CV F1-Score: 0.8439 (+/- 0.0377)
+2026-06-08 10:45:43,928 - src.model - INFO - Evaluating RandomForest with 5-fold cross-validation...
+2026-06-08 10:45:52,027 - src.model - INFO - RandomForest 5-Fold CV F1-Score: 0.9009 (+/- 0.0196)
+2026-06-08 10:45:52,028 - src.model - INFO - Best model selected: RandomForest with F1-score: 0.9009
+2026-06-08 10:45:52,028 - src.model - INFO - Fitting RandomForest pipeline on the full training dataset...
+2026-06-08 10:45:54,689 - src.model - INFO - Saving best model classifier to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\best_model.joblib...
+2026-06-08 10:45:54,807 - src.model - INFO - Saving tfidf vectorizer to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\tfidf_vectorizer.joblib...
+2026-06-08 10:45:54,954 - main - INFO - Training pipeline completed. CV Scores: {'MultinomialNB': 0.8624954647675972, 'LogisticRegression': 0.8438820578847815, 'RandomForest': 0.9008982015367334}
+2026-06-08 10:46:50,812 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\logs\run.log
+2026-06-08 10:46:50,813 - main - INFO - Starting evaluation pipeline...
+2026-06-08 10:46:50,814 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\best_model.joblib...
+2026-06-08 10:46:50,932 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\tfidf_vectorizer.joblib...
+2026-06-08 10:46:51,031 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-08 10:46:51,073 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-08 10:46:51,074 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-08 10:46:51,102 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-08 10:46:51,103 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-08 10:46:51,104 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-08 10:46:51,111 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-08 10:46:51,115 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-08 10:46:51,118 - src.data_loader - INFO - Class distribution:
+2026-06-08 10:46:51,118 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-08 10:46:51,119 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-08 10:46:51,119 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-08 10:46:52,292 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-08 10:46:52,363 - src.evaluate - INFO - Starting model evaluation...
+2026-06-08 10:46:52,367 - src.evaluate - INFO - Transforming test data...
+2026-06-08 10:46:52,624 - src.evaluate - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+         ham       0.97      1.00      0.99       966
+        spam       0.99      0.83      0.91       149
+
+    accuracy                           0.98      1115
+   macro avg       0.98      0.92      0.95      1115
+weighted avg       0.98      0.98      0.98      1115
+
+2026-06-08 10:46:52,624 - src.evaluate - INFO - Saving classification report text to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\reports\classification_report.txt...
+2026-06-08 10:46:53,211 - src.evaluate - INFO - Confusion matrix plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\reports\confusion_matrix.png
+2026-06-08 10:46:53,608 - src.evaluate - INFO - ROC curve plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\reports\roc_curve.png
+2026-06-08 10:46:53,609 - main - INFO - Evaluation pipeline completed. Test metrics: {'Accuracy': 0.9766816143497757, 'Precision': 0.992, 'Recall': 0.8322147651006712, 'F1': 0.9051094890510949, 'ROC-AUC': 0.9826170328067031}
+2026-06-08 10:48:40,833 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\logs\run.log
+2026-06-08 10:48:40,834 - main - INFO - Starting prediction/inference...
+2026-06-08 10:48:40,834 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\best_model.joblib...
+2026-06-08 10:48:40,937 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\tfidf_vectorizer.joblib...
+2026-06-08 10:48:41,012 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-08 10:48:41,030 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-08 10:48:41,085 - src.predict - INFO - Prediction complete. Label: Ham, Confidence: 1.0000
+2026-06-08 10:51:41,045 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\logs\run.log
+2026-06-08 10:51:41,048 - main - INFO - Starting training pipeline...
+2026-06-08 10:51:41,050 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-08 10:51:41,093 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-08 10:51:41,094 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-08 10:51:41,128 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-08 10:51:41,129 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-08 10:51:41,129 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-08 10:51:41,158 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-08 10:51:41,161 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-08 10:51:41,177 - src.data_loader - INFO - Class distribution:
+2026-06-08 10:51:41,178 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-08 10:51:41,178 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-08 10:51:41,179 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-08 10:51:42,279 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-08 10:51:42,283 - main - INFO - Splitting data with test_size=0.2, random_state=42
+2026-06-08 10:51:42,376 - src.feature_engineering - INFO - Building TF-IDF Vectorizer with max_features=5000, ngram_range=(1, 2)
+2026-06-08 10:51:42,376 - src.model - INFO - Initializing models for training...
+2026-06-08 10:51:42,379 - src.model - INFO - Evaluating MultinomialNB with 5-fold cross-validation...
+2026-06-08 10:51:50,378 - src.model - INFO - MultinomialNB 5-Fold CV F1-Score: 0.8625 (+/- 0.0329)
+2026-06-08 10:51:50,379 - src.model - INFO - Evaluating LogisticRegression with 5-fold cross-validation...
+2026-06-08 10:51:55,592 - src.model - INFO - LogisticRegression 5-Fold CV F1-Score: 0.8439 (+/- 0.0377)
+2026-06-08 10:51:55,592 - src.model - INFO - Evaluating RandomForest with 5-fold cross-validation...
+2026-06-08 10:52:02,679 - src.model - INFO - RandomForest 5-Fold CV F1-Score: 0.9009 (+/- 0.0196)
+2026-06-08 10:52:02,680 - src.model - INFO - Best model selected: RandomForest with F1-score: 0.9009
+2026-06-08 10:52:02,680 - src.model - INFO - Fitting RandomForest pipeline on the full training dataset...
+2026-06-08 10:52:04,935 - src.model - INFO - Saving best model classifier to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\best_model.joblib...
+2026-06-08 10:52:05,032 - src.model - INFO - Saving tfidf vectorizer to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\tfidf_vectorizer.joblib...
+2026-06-08 10:52:05,175 - main - INFO - Training pipeline completed. CV Scores: {'MultinomialNB': 0.8624954647675972, 'LogisticRegression': 0.8438820578847815, 'RandomForest': 0.9008982015367334}
+2026-06-08 10:52:38,159 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\logs\run.log
+2026-06-08 10:52:38,160 - main - INFO - Starting evaluation pipeline...
+2026-06-08 10:52:38,160 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\best_model.joblib...
+2026-06-08 10:52:38,266 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\tfidf_vectorizer.joblib...
+2026-06-08 10:52:38,360 - src.data_loader - INFO - Attempting to load CSV with encoding: utf-8
+2026-06-08 10:52:38,372 - src.data_loader - WARNING - Failed to load with encoding utf-8: 'utf-8' codec can't decode bytes in position 135-136: invalid continuation byte
+2026-06-08 10:52:38,372 - src.data_loader - INFO - Attempting to load CSV with encoding: latin-1
+2026-06-08 10:52:38,403 - src.data_loader - INFO - Successfully loaded CSV with encoding: latin-1
+2026-06-08 10:52:38,404 - src.data_loader - INFO - Raw dataset shape: (5572, 5)
+2026-06-08 10:52:38,405 - src.data_loader - INFO - Dropping unnamed extra columns: ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4']
+2026-06-08 10:52:38,413 - src.data_loader - INFO - Null values in each column:
+text     0
+label    0
+dtype: int64
+2026-06-08 10:52:38,419 - src.data_loader - INFO - Cleaned dataset shape (after dropping nulls): (5572, 2)
+2026-06-08 10:52:38,423 - src.data_loader - INFO - Class distribution:
+2026-06-08 10:52:38,424 - src.data_loader - INFO -   ham: 4825 (86.59%)
+2026-06-08 10:52:38,425 - src.data_loader - INFO -   spam: 747 (13.41%)
+2026-06-08 10:52:38,425 - src.preprocessor - INFO - Starting preprocessing of 5572 texts...
+2026-06-08 10:52:39,544 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-08 10:52:39,607 - src.evaluate - INFO - Starting model evaluation...
+2026-06-08 10:52:39,610 - src.evaluate - INFO - Transforming test data...
+2026-06-08 10:52:39,887 - src.evaluate - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+         ham       0.97      1.00      0.99       966
+        spam       0.99      0.83      0.91       149
+
+    accuracy                           0.98      1115
+   macro avg       0.98      0.92      0.95      1115
+weighted avg       0.98      0.98      0.98      1115
+
+2026-06-08 10:52:39,887 - src.evaluate - INFO - Saving classification report text to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\reports\classification_report.txt...
+2026-06-08 10:52:40,299 - src.evaluate - INFO - Confusion matrix plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\reports\confusion_matrix.png
+2026-06-08 10:52:40,634 - src.evaluate - INFO - ROC curve plot saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\reports\roc_curve.png
+2026-06-08 10:52:40,635 - main - INFO - Evaluation pipeline completed. Test metrics: {'Accuracy': 0.9766816143497757, 'Precision': 0.992, 'Recall': 0.8322147651006712, 'F1': 0.9051094890510949, 'ROC-AUC': 0.9826170328067031}
+2026-06-08 10:54:04,056 - main - INFO - Logging configured. Logs are saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\logs\run.log
+2026-06-08 10:54:04,056 - main - INFO - Starting prediction/inference...
+2026-06-08 10:54:04,057 - src.predict - INFO - Loading model from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\best_model.joblib...
+2026-06-08 10:54:04,165 - src.predict - INFO - Loading vectorizer from C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_4\models\tfidf_vectorizer.joblib...
+2026-06-08 10:54:04,228 - src.preprocessor - INFO - Starting preprocessing of 1 texts...
+2026-06-08 10:54:04,246 - src.preprocessor - INFO - Preprocessing complete.
+2026-06-08 10:54:04,294 - src.predict - INFO - Prediction complete. Label: Spam, Confidence: 0.9200

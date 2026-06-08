@@ -14,9 +14,7 @@ class AppConfig:
     """Application configuration container."""
 
     # Paths
-    BASE_DIR: Path = Path(
-        "C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/car-price-prediction"
-    )
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent
     DATA_PATH: Path = BASE_DIR / "data"
     DATA_FILE: str = "car_data.csv"
     

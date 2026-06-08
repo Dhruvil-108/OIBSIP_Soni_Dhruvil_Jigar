@@ -366,3 +366,190 @@ Evaluation Metrics Summary:
 2026-06-07 13:06:28,223 - __main__ - INFO - Prediction successful!
 2026-06-07 13:06:28,223 - __main__ - INFO - Input: {'Year': 2015, 'Present_Price': 8.5, 'Kms_Driven': 35000, 'Fuel_Type': 'Petrol', 'Seller_Type': 'Dealer', 'Transmission': 'Manual', 'Owner': 0}
 2026-06-07 13:06:28,224 - __main__ - INFO - Result: {'predicted_price_lakhs': 6.14, 'model_used': 'GradientBoostingRegressor (Pipeline)'}
+2026-06-07 17:38:22,762 - __main__ - INFO - ========================================
+2026-06-07 17:38:22,764 - __main__ - INFO - Starting training pipeline...
+2026-06-07 17:38:22,764 - __main__ - INFO - ========================================
+2026-06-07 17:38:22,765 - src.data_loader - INFO - Loading dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\data\car_data.csv
+2026-06-07 17:38:22,812 - src.data_loader - INFO - Dataset loaded successfully. Original shape: (301, 9)
+2026-06-07 17:38:22,814 - src.data_loader - INFO - Auto-detected target column: 'Selling_Price'
+2026-06-07 17:38:22,815 - src.data_loader - INFO - ----- Dataset Info -----
+2026-06-07 17:38:22,816 - src.data_loader - INFO - Data types:
+Car_Name          object
+Year               int64
+Selling_Price    float64
+Present_Price    float64
+Kms_Driven         int64
+Fuel_Type         object
+Seller_Type       object
+Transmission      object
+Owner              int64
+2026-06-07 17:38:22,819 - src.data_loader - INFO - Null counts:
+Car_Name         0
+Year             0
+Selling_Price    0
+Present_Price    0
+Kms_Driven       0
+Fuel_Type        0
+Seller_Type      0
+Transmission     0
+Owner            0
+2026-06-07 17:38:22,832 - src.data_loader - INFO - Target column (Selling_Price) distribution:
+count    301.000000
+mean       4.661296
+std        5.082812
+min        0.100000
+25%        0.900000
+50%        3.600000
+75%        6.000000
+max       35.000000
+2026-06-07 17:38:22,832 - src.data_loader - INFO - Categorical columns unique values count:
+2026-06-07 17:38:22,833 - src.data_loader - INFO - Column 'Car_Name': 98 unique values
+2026-06-07 17:38:22,835 - src.data_loader - INFO - Column 'Fuel_Type': 3 unique values
+2026-06-07 17:38:22,835 - src.data_loader - INFO - Column 'Seller_Type': 2 unique values
+2026-06-07 17:38:22,836 - src.data_loader - INFO - Column 'Transmission': 2 unique values
+2026-06-07 17:38:22,846 - src.preprocessor - INFO - Derived 'car_age' and dropped 'Year'.
+2026-06-07 17:38:22,860 - src.preprocessor - INFO - Outlier bounds for 'Present_Price': (-11.850000000000001, 22.950000000000003)
+2026-06-07 17:38:22,865 - src.preprocessor - INFO - Outlier bounds for 'Kms_Driven': (-35650.5, 99417.5)
+2026-06-07 17:38:22,871 - src.preprocessor - INFO - Outlier bounds for 'Owner': (0.0, 0.0)
+2026-06-07 17:38:22,876 - src.preprocessor - INFO - Outlier bounds for 'car_age': (4.0, 20.0)
+2026-06-07 17:38:22,892 - src.preprocessor - INFO - Saved preprocessor state to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\preprocessor_state.pkl
+2026-06-07 17:38:22,897 - src.feature_engineering - INFO - Engineered feature 'depreciation' (Present_Price - Selling_Price).
+2026-06-07 17:38:22,897 - src.feature_engineering - INFO - Fitting StandardScaler on columns: ['Present_Price', 'Kms_Driven', 'Owner', 'car_age', 'price_per_km', 'km_per_year']
+2026-06-07 17:38:22,982 - src.feature_engineering - INFO - Saved fitted scaler to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\scaler.pkl
+2026-06-07 17:38:22,992 - src.feature_engineering - WARNING - Found features with correlation > 0.95: ['Fuel_Type_Petrol', 'Seller_Type_Individual', 'Transmission_Manual']
+2026-06-07 17:38:22,995 - src.feature_engineering - INFO - Saved dropped feature names to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\dropped_features.pkl
+2026-06-07 17:38:22,996 - src.feature_engineering - INFO - Dropped feature 'Fuel_Type_Petrol' due to high correlation (>0.95).
+2026-06-07 17:38:22,998 - src.feature_engineering - INFO - Dropped feature 'Seller_Type_Individual' due to high correlation (>0.95).
+2026-06-07 17:38:22,999 - src.feature_engineering - INFO - Dropped feature 'Transmission_Manual' due to high correlation (>0.95).
+2026-06-07 17:38:23,000 - src.model - INFO - Splitting dataset into train and test sets.
+2026-06-07 17:38:23,007 - src.model - INFO - Train set shape: (240, 10), Test set shape: (61, 10)
+2026-06-07 17:38:23,008 - src.model - INFO - Starting baseline model training and 5-fold cross-validation.
+2026-06-07 17:38:32,697 - src.model - INFO - Baseline LinearRegression CV R² scores: [0.88758107 0.63870434 0.80491377 0.79207617 0.87366839] | Mean R²: 0.7994 (std: 0.0885)
+2026-06-07 17:38:37,657 - src.model - INFO - Baseline Ridge CV R² scores: [0.88283327 0.6474253  0.79937138 0.79175472 0.87297266] | Mean R²: 0.7989 (std: 0.0843)
+2026-06-07 17:38:42,427 - src.model - INFO - Baseline Lasso CV R² scores: [0.67523169 0.61242147 0.70499085 0.70560853 0.82332227] | Mean R²: 0.7043 (std: 0.0685)
+2026-06-07 17:38:43,166 - src.model - INFO - Baseline RandomForest CV R² scores: [0.88581653 0.73250362 0.47376143 0.50288622 0.95461789] | Mean R²: 0.7099 (std: 0.1949)
+2026-06-07 17:38:43,886 - src.model - INFO - Baseline GradientBoosting CV R² scores: [0.91035998 0.73530976 0.50549762 0.54214901 0.93219008] | Mean R²: 0.7251 (std: 0.1783)
+2026-06-07 17:38:44,379 - src.model - INFO - Baseline XGBoost CV R² scores: [0.88145021 0.52713277 0.47566641 0.49388521 0.90871091] | Mean R²: 0.6574 (std: 0.1950)
+2026-06-07 17:38:44,612 - src.model - INFO - Starting hyperparameter tuning with GridSearchCV.
+2026-06-07 17:38:44,613 - src.model - INFO - Tuning Random Forest...
+2026-06-07 17:38:51,440 - src.model - INFO - Best Random Forest CV R²: 0.7111 with params: {'regressor__max_depth': None, 'regressor__min_samples_split': 2, 'regressor__n_estimators': 50}
+2026-06-07 17:38:51,441 - src.model - INFO - Tuning XGBoost...
+2026-06-07 17:38:53,855 - src.model - INFO - Best XGBoost CV R²: 0.7848 with params: {'regressor__learning_rate': 0.01, 'regressor__max_depth': 3, 'regressor__n_estimators': 200}
+2026-06-07 17:38:53,863 - src.model - INFO - Saved pipeline LinearRegression to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\LinearRegression.pkl
+2026-06-07 17:38:53,868 - src.model - INFO - Saved pipeline Ridge to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\Ridge.pkl
+2026-06-07 17:38:53,873 - src.model - INFO - Saved pipeline Lasso to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\Lasso.pkl
+2026-06-07 17:38:53,966 - src.model - INFO - Saved pipeline RandomForest to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\RandomForest.pkl
+2026-06-07 17:38:53,981 - src.model - INFO - Saved pipeline GradientBoosting to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\GradientBoosting.pkl
+2026-06-07 17:38:53,990 - src.model - INFO - Saved pipeline XGBoost to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\XGBoost.pkl
+2026-06-07 17:38:54,042 - src.model - INFO - Saved pipeline RandomForest_Tuned to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\RandomForest_Tuned.pkl
+2026-06-07 17:38:54,052 - src.model - INFO - Saved pipeline XGBoost_Tuned to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\XGBoost_Tuned.pkl
+2026-06-07 17:38:54,053 - src.model - INFO - Selecting best model by test set R² score.
+2026-06-07 17:38:54,060 - src.model - INFO - Model 'LinearRegression' test set R²: 0.7760
+2026-06-07 17:38:54,066 - src.model - INFO - Model 'Ridge' test set R²: 0.7754
+2026-06-07 17:38:54,072 - src.model - INFO - Model 'Lasso' test set R²: 0.6619
+2026-06-07 17:38:54,108 - src.model - INFO - Model 'RandomForest' test set R²: 0.9110
+2026-06-07 17:38:54,190 - src.model - INFO - Model 'GradientBoosting' test set R²: 0.9273
+2026-06-07 17:38:54,273 - src.model - INFO - Model 'XGBoost' test set R²: 0.8994
+2026-06-07 17:38:54,338 - src.model - INFO - Model 'RandomForest_Tuned' test set R²: 0.9024
+2026-06-07 17:38:54,359 - src.model - INFO - Model 'XGBoost_Tuned' test set R²: 0.9120
+2026-06-07 17:38:54,375 - src.model - INFO - >>> Best model: 'GradientBoosting' with test R²: 0.9273. Saved to C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\best_model.pkl
+2026-06-07 17:38:54,376 - __main__ - INFO - Training pipeline finished. Best model selected: GradientBoosting
+2026-06-07 17:39:19,522 - __main__ - INFO - ========================================
+2026-06-07 17:39:19,522 - __main__ - INFO - Starting evaluation pipeline...
+2026-06-07 17:39:19,523 - __main__ - INFO - ========================================
+2026-06-07 17:39:19,523 - src.data_loader - INFO - Loading dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\data\car_data.csv
+2026-06-07 17:39:19,542 - src.data_loader - INFO - Dataset loaded successfully. Original shape: (301, 9)
+2026-06-07 17:39:19,549 - src.data_loader - INFO - Auto-detected target column: 'Selling_Price'
+2026-06-07 17:39:19,549 - src.data_loader - INFO - ----- Dataset Info -----
+2026-06-07 17:39:19,551 - src.data_loader - INFO - Data types:
+Car_Name          object
+Year               int64
+Selling_Price    float64
+Present_Price    float64
+Kms_Driven         int64
+Fuel_Type         object
+Seller_Type       object
+Transmission      object
+Owner              int64
+2026-06-07 17:39:19,554 - src.data_loader - INFO - Null counts:
+Car_Name         0
+Year             0
+Selling_Price    0
+Present_Price    0
+Kms_Driven       0
+Fuel_Type        0
+Seller_Type      0
+Transmission     0
+Owner            0
+2026-06-07 17:39:19,565 - src.data_loader - INFO - Target column (Selling_Price) distribution:
+count    301.000000
+mean       4.661296
+std        5.082812
+min        0.100000
+25%        0.900000
+50%        3.600000
+75%        6.000000
+max       35.000000
+2026-06-07 17:39:19,566 - src.data_loader - INFO - Categorical columns unique values count:
+2026-06-07 17:39:19,570 - src.data_loader - INFO - Column 'Car_Name': 98 unique values
+2026-06-07 17:39:19,571 - src.data_loader - INFO - Column 'Fuel_Type': 3 unique values
+2026-06-07 17:39:19,572 - src.data_loader - INFO - Column 'Seller_Type': 2 unique values
+2026-06-07 17:39:19,574 - src.data_loader - INFO - Column 'Transmission': 2 unique values
+2026-06-07 17:39:19,586 - src.preprocessor - INFO - Derived 'car_age' and dropped 'Year'.
+2026-06-07 17:39:19,643 - src.preprocessor - INFO - Loaded preprocessor state from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\preprocessor_state.pkl
+2026-06-07 17:39:19,671 - src.feature_engineering - INFO - Engineered feature 'depreciation' (Present_Price - Selling_Price).
+2026-06-07 17:39:19,697 - src.feature_engineering - INFO - Loaded scaler from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\scaler.pkl
+2026-06-07 17:39:19,809 - src.feature_engineering - INFO - Loaded dropped feature names: ['Fuel_Type_Petrol', 'Seller_Type_Individual', 'Transmission_Manual']
+2026-06-07 17:39:19,811 - src.feature_engineering - INFO - Dropped feature 'Fuel_Type_Petrol' due to high correlation (>0.95).
+2026-06-07 17:39:19,812 - src.feature_engineering - INFO - Dropped feature 'Seller_Type_Individual' due to high correlation (>0.95).
+2026-06-07 17:39:19,814 - src.feature_engineering - INFO - Dropped feature 'Transmission_Manual' due to high correlation (>0.95).
+2026-06-07 17:39:19,814 - src.model - INFO - Splitting dataset into train and test sets.
+2026-06-07 17:39:19,819 - src.model - INFO - Train set shape: (240, 10), Test set shape: (61, 10)
+2026-06-07 17:39:19,820 - src.evaluate - INFO - Starting model evaluation pipeline.
+2026-06-07 17:39:19,822 - src.evaluate - INFO - Evaluating model: GradientBoosting
+2026-06-07 17:39:19,867 - src.evaluate - INFO - Evaluating model: Lasso
+2026-06-07 17:39:19,894 - src.evaluate - INFO - Evaluating model: LinearRegression
+2026-06-07 17:39:19,929 - src.evaluate - INFO - Evaluating model: RandomForest
+2026-06-07 17:39:20,028 - src.evaluate - INFO - Evaluating model: RandomForest_Tuned
+2026-06-07 17:39:20,097 - src.evaluate - INFO - Evaluating model: Ridge
+2026-06-07 17:39:20,124 - src.evaluate - INFO - Evaluating model: XGBoost
+2026-06-07 17:39:20,173 - src.evaluate - INFO - Evaluating model: XGBoost_Tuned
+2026-06-07 17:39:20,230 - src.evaluate - INFO - Saved model evaluation metrics summary to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\reports\model_metrics.csv
+2026-06-07 17:39:20,239 - src.evaluate - INFO - 
+Evaluation Metrics Summary:
+     MAE      MSE     RMSE       R2  Adjusted_R2              Model
+0.695902 1.673857 1.293776 0.927336     0.912803   GradientBoosting
+1.782108 7.787410 2.790593 0.661940     0.594328              Lasso
+1.367806 5.160527 2.271679 0.775976     0.731171   LinearRegression
+0.800990 2.050686 1.432022 0.910977     0.893173       RandomForest
+0.811911 2.247249 1.499083 0.902444     0.882933 RandomForest_Tuned
+1.391013 5.173998 2.274642 0.775391     0.730469              Ridge
+0.738841 2.317495 1.522332 0.899395     0.879274            XGBoost
+0.983649 2.028123 1.424122 0.911957     0.894348      XGBoost_Tuned
+2026-06-07 17:39:21,561 - src.evaluate - INFO - Saved Model Comparison plot to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\reports\figures\model_comparison.png
+2026-06-07 17:39:21,562 - src.evaluate - INFO - Generating detailed plots for the best model.
+2026-06-07 17:39:22,392 - src.evaluate - INFO - Saved Actual vs Predicted plot to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\reports\figures\actual_vs_predicted.png
+2026-06-07 17:39:23,047 - src.evaluate - INFO - Saved Residuals plot to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\reports\figures\residuals_distribution.png
+2026-06-07 17:39:23,806 - src.evaluate - INFO - Saved Feature Importance plot to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\reports\figures\feature_importance.png
+2026-06-07 17:39:23,809 - src.evaluate - INFO - Generating learning curves...
+2026-06-07 17:39:36,253 - src.evaluate - INFO - Saved Learning Curve plot to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\reports\figures\learning_curve.png
+2026-06-07 17:39:36,254 - src.evaluate - INFO - Model evaluation pipeline completed successfully.
+2026-06-07 17:39:36,256 - __main__ - INFO - Evaluation pipeline completed successfully.
+2026-06-07 17:40:35,681 - __main__ - INFO - ========================================
+2026-06-07 17:40:35,682 - __main__ - INFO - Starting prediction request...
+2026-06-07 17:40:35,683 - __main__ - INFO - ========================================
+2026-06-07 17:40:35,683 - __main__ - ERROR - Failed to parse prediction input JSON: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2026-06-07 17:41:40,067 - __main__ - INFO - ========================================
+2026-06-07 17:41:40,067 - __main__ - INFO - Starting prediction request...
+2026-06-07 17:41:40,068 - __main__ - INFO - ========================================
+2026-06-07 17:41:40,082 - src.preprocessor - INFO - Derived 'car_age' and dropped 'Year'.
+2026-06-07 17:41:40,083 - src.preprocessor - INFO - Loaded preprocessor state from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\preprocessor_state.pkl
+2026-06-07 17:41:40,128 - src.feature_engineering - INFO - Skipping 'depreciation' calculation since target 'Selling_Price' is not in input.
+2026-06-07 17:41:40,131 - src.feature_engineering - INFO - Loaded scaler from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_3\models\scaler.pkl
+2026-06-07 17:41:40,184 - src.feature_engineering - INFO - Loaded dropped feature names: ['Fuel_Type_Petrol', 'Seller_Type_Individual', 'Transmission_Manual']
+2026-06-07 17:41:40,186 - src.feature_engineering - INFO - Dropped feature 'Fuel_Type_Petrol' due to high correlation (>0.95).
+2026-06-07 17:41:40,187 - src.feature_engineering - INFO - Dropped feature 'Seller_Type_Individual' due to high correlation (>0.95).
+2026-06-07 17:41:40,189 - src.feature_engineering - INFO - Dropped feature 'Transmission_Manual' due to high correlation (>0.95).
+2026-06-07 17:41:40,194 - __main__ - INFO - Prediction successful!
+2026-06-07 17:41:40,194 - __main__ - INFO - Input: {'Year': 2015, 'Present_Price': 8.5, 'Kms_Driven': 35000, 'Fuel_Type': 'Petrol', 'Seller_Type': 'Dealer', 'Transmission': 'Manual', 'Owner': 0}
+2026-06-07 17:41:40,195 - __main__ - INFO - Result: {'predicted_price_lakhs': 6.14, 'model_used': 'GradientBoostingRegressor (Pipeline)'}

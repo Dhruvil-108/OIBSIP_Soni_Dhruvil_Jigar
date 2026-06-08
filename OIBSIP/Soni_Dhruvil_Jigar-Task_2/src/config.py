@@ -12,7 +12,7 @@ class AnalysisConfig:
     """Dataclass holding all configuration settings and directory paths."""
 
     # Base directory paths
-    BASE_DIR: Path = Path("C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/unemployment-analysis")
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent
     DATA_PATH: Path = BASE_DIR / "data"
     REPORTS_DIR: Path = BASE_DIR / "reports"
     FIGURES_DIR: Path = REPORTS_DIR / "figures"

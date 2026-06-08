@@ -286,3 +286,391 @@ dtype: int64
 2026-06-07 13:28:48,264 - src.report_generator - INFO - Generating final insights report...
 2026-06-07 13:28:48,267 - src.report_generator - INFO - Insights report successfully written to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\unemployment-analysis\reports\unemployment_insights.md
 2026-06-07 13:28:48,268 - main_pipeline - INFO - Report regeneration finished successfully.
+2026-06-07 17:22:21,599 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:22:21,600 - main_pipeline - INFO - Executing FULL analysis pipeline.
+2026-06-07 17:22:21,601 - src.data_loader - INFO - Attempting to load dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\data\Unemployment in India.csv
+2026-06-07 17:22:21,708 - src.data_loader - INFO - Initial loaded shape: (768, 7)
+2026-06-07 17:22:21,713 - src.data_loader - INFO - Cleaned columns: ['Region', 'Date', 'Frequency', 'Estimated Unemployment Rate (%)', 'Estimated Employed', 'Estimated Labour Participation Rate (%)', 'Area']
+2026-06-07 17:22:21,739 - src.data_loader - INFO - Parsing Date column: Date
+2026-06-07 17:22:21,763 - src.data_loader - INFO - Cleaned dataset shape: (740, 7)
+2026-06-07 17:22:21,763 - src.data_loader - INFO - Data types:
+Region                                             object
+Date                                       datetime64[ns]
+Frequency                                          object
+Estimated Unemployment Rate (%)                   float64
+Estimated Employed                                float64
+Estimated Labour Participation Rate (%)           float64
+Area                                               object
+dtype: object
+2026-06-07 17:22:21,767 - src.data_loader - INFO - Missing value counts:
+Region                                     0
+Date                                       0
+Frequency                                  0
+Estimated Unemployment Rate (%)            0
+Estimated Employed                         0
+Estimated Labour Participation Rate (%)    0
+Area                                       0
+dtype: int64
+2026-06-07 17:22:21,770 - src.data_loader - INFO - Date range: 2019-05-31 00:00:00 to 2020-06-30 00:00:00
+2026-06-07 17:22:21,773 - src.data_loader - INFO - Unique regions count: 28
+2026-06-07 17:22:21,773 - src.preprocessor - INFO - Standardising text case for Region and Area columns.
+2026-06-07 17:22:21,776 - src.preprocessor - INFO - Imputing missing values...
+2026-06-07 17:22:21,778 - src.preprocessor - INFO - Adding date-derived columns (month, year, quarter, covid_period)...
+2026-06-07 17:22:21,805 - src.preprocessor - INFO - Detecting outliers in the unemployment rate column...
+2026-06-07 17:22:21,811 - src.preprocessor - INFO - IQR Outlier detection bounds: [-12.19, 32.73]. Detected 35 outliers (4.73% of data).
+2026-06-07 17:22:21,811 - main_pipeline - INFO - Running EDA stage.
+2026-06-07 17:22:21,811 - src.eda - INFO - Starting Exploratory Data Analysis...
+2026-06-07 17:22:21,817 - src.eda - INFO - Computed basic summary statistics.
+2026-06-07 17:22:22,546 - src.eda - INFO - Saved Plot 01: Distribution.
+2026-06-07 17:22:22,960 - src.eda - INFO - Saved Plot 02: Rural vs Urban Comparison.
+2026-06-07 17:22:24,170 - src.eda - INFO - Saved Plot 03: Avg by Region.
+2026-06-07 17:22:24,891 - src.eda - INFO - Saved Plot 04: Scatter & Regression.
+2026-06-07 17:22:25,557 - src.eda - INFO - Saved Plot 05: Correlation Heatmap.
+2026-06-07 17:22:26,005 - src.eda - INFO - Saved Plot 06: Covid Period Comparison.
+2026-06-07 17:22:26,006 - src.eda - INFO - All EDA plots generated successfully.
+2026-06-07 17:22:26,006 - main_pipeline - INFO - Running Time-Series Analysis stage.
+2026-06-07 17:22:26,006 - src.time_series_analysis - INFO - Starting Time-Series Analysis...
+2026-06-07 17:22:26,015 - src.time_series_analysis - INFO - Peak national unemployment of 24.88% occurred in May 2020
+2026-06-07 17:22:26,607 - src.time_series_analysis - INFO - Saved Plot 07: Unemployment over time.
+2026-06-07 17:22:26,618 - src.time_series_analysis - INFO - Top 5 affected regions during Covid: ['Puducherry', 'Jharkhand', 'Haryana', 'Bihar', 'Tripura']
+2026-06-07 17:22:27,382 - src.time_series_analysis - INFO - Saved Plot 08: Monthly trend by region.
+2026-06-07 17:22:28,060 - src.time_series_analysis - INFO - Saved Plot 09: Rolling average.
+2026-06-07 17:22:29,211 - src.time_series_analysis - INFO - Saved Plot 10: Side-by-side trends.
+2026-06-07 17:22:29,216 - src.time_series_analysis - INFO - Highest Covid spike region: Puducherry with spike of +37.36%
+2026-06-07 17:22:29,216 - src.time_series_analysis - INFO - National pre-Covid mean: 9.51%, post-Covid mean: 17.77%. Increase of 86.91%
+2026-06-07 17:22:29,217 - main_pipeline - INFO - Running Regional Analysis stage.
+2026-06-07 17:22:29,217 - src.regional_analysis - INFO - Starting Regional Analysis...
+2026-06-07 17:22:29,803 - src.regional_analysis - INFO - Saved Plot 11: Top 10 highest regions.
+2026-06-07 17:22:30,400 - src.regional_analysis - INFO - Saved Plot 12: Top 10 lowest regions.
+2026-06-07 17:22:31,798 - src.regional_analysis - INFO - Saved Plot 13: Grouped Rural/Urban by region.
+2026-06-07 17:22:33,147 - src.regional_analysis - INFO - Saved Plot 14: Covid Impact by region.
+2026-06-07 17:22:33,148 - src.regional_analysis - INFO - All regional analysis plots generated successfully.
+2026-06-07 17:22:33,153 - main_pipeline - INFO - Caching statistics to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\cached_stats.json
+2026-06-07 17:22:33,162 - main_pipeline - INFO - Running Report Generation stage.
+2026-06-07 17:22:33,163 - src.report_generator - INFO - Generating final insights report...
+2026-06-07 17:22:33,167 - src.report_generator - INFO - Insights report successfully written to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\unemployment_insights.md
+2026-06-07 17:22:33,168 - main_pipeline - INFO - FULL analysis pipeline finished successfully.
+2026-06-07 17:24:07,569 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:24:07,570 - main_pipeline - INFO - Executing FULL analysis pipeline.
+2026-06-07 17:24:07,571 - src.data_loader - INFO - Attempting to load dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\data\Unemployment in India.csv
+2026-06-07 17:24:07,580 - src.data_loader - INFO - Initial loaded shape: (768, 7)
+2026-06-07 17:24:07,582 - src.data_loader - INFO - Cleaned columns: ['Region', 'Date', 'Frequency', 'Estimated Unemployment Rate (%)', 'Estimated Employed', 'Estimated Labour Participation Rate (%)', 'Area']
+2026-06-07 17:24:07,593 - src.data_loader - INFO - Parsing Date column: Date
+2026-06-07 17:24:07,602 - src.data_loader - INFO - Cleaned dataset shape: (740, 7)
+2026-06-07 17:24:07,603 - src.data_loader - INFO - Data types:
+Region                                             object
+Date                                       datetime64[ns]
+Frequency                                          object
+Estimated Unemployment Rate (%)                   float64
+Estimated Employed                                float64
+Estimated Labour Participation Rate (%)           float64
+Area                                               object
+dtype: object
+2026-06-07 17:24:07,609 - src.data_loader - INFO - Missing value counts:
+Region                                     0
+Date                                       0
+Frequency                                  0
+Estimated Unemployment Rate (%)            0
+Estimated Employed                         0
+Estimated Labour Participation Rate (%)    0
+Area                                       0
+dtype: int64
+2026-06-07 17:24:07,612 - src.data_loader - INFO - Date range: 2019-05-31 00:00:00 to 2020-06-30 00:00:00
+2026-06-07 17:24:07,614 - src.data_loader - INFO - Unique regions count: 28
+2026-06-07 17:24:07,616 - src.preprocessor - INFO - Standardising text case for Region and Area columns.
+2026-06-07 17:24:07,621 - src.preprocessor - INFO - Imputing missing values...
+2026-06-07 17:24:07,627 - src.preprocessor - INFO - Adding date-derived columns (month, year, quarter, covid_period)...
+2026-06-07 17:24:07,643 - src.preprocessor - INFO - Detecting outliers in the unemployment rate column...
+2026-06-07 17:24:07,648 - src.preprocessor - INFO - IQR Outlier detection bounds: [-12.19, 32.73]. Detected 35 outliers (4.73% of data).
+2026-06-07 17:24:07,649 - main_pipeline - INFO - Running EDA stage.
+2026-06-07 17:24:07,650 - src.eda - INFO - Starting Exploratory Data Analysis...
+2026-06-07 17:24:07,655 - src.eda - INFO - Computed basic summary statistics.
+2026-06-07 17:24:08,301 - src.eda - INFO - Saved Plot 01: Distribution.
+2026-06-07 17:24:08,719 - src.eda - INFO - Saved Plot 02: Rural vs Urban Comparison.
+2026-06-07 17:24:09,896 - src.eda - INFO - Saved Plot 03: Avg by Region.
+2026-06-07 17:24:10,671 - src.eda - INFO - Saved Plot 04: Scatter & Regression.
+2026-06-07 17:24:11,433 - src.eda - INFO - Saved Plot 05: Correlation Heatmap.
+2026-06-07 17:24:11,819 - src.eda - INFO - Saved Plot 06: Covid Period Comparison.
+2026-06-07 17:24:11,820 - src.eda - INFO - All EDA plots generated successfully.
+2026-06-07 17:24:11,820 - main_pipeline - INFO - Running Time-Series Analysis stage.
+2026-06-07 17:24:11,821 - src.time_series_analysis - INFO - Starting Time-Series Analysis...
+2026-06-07 17:24:11,825 - src.time_series_analysis - INFO - Peak national unemployment of 24.88% occurred in May 2020
+2026-06-07 17:24:12,432 - src.time_series_analysis - INFO - Saved Plot 07: Unemployment over time.
+2026-06-07 17:24:12,437 - src.time_series_analysis - INFO - Top 5 affected regions during Covid: ['Puducherry', 'Jharkhand', 'Haryana', 'Bihar', 'Tripura']
+2026-06-07 17:24:13,222 - src.time_series_analysis - INFO - Saved Plot 08: Monthly trend by region.
+2026-06-07 17:24:13,875 - src.time_series_analysis - INFO - Saved Plot 09: Rolling average.
+2026-06-07 17:24:14,933 - src.time_series_analysis - INFO - Saved Plot 10: Side-by-side trends.
+2026-06-07 17:24:14,937 - src.time_series_analysis - INFO - Highest Covid spike region: Puducherry with spike of +37.36%
+2026-06-07 17:24:14,938 - src.time_series_analysis - INFO - National pre-Covid mean: 9.51%, post-Covid mean: 17.77%. Increase of 86.91%
+2026-06-07 17:24:14,939 - main_pipeline - INFO - Running Regional Analysis stage.
+2026-06-07 17:24:14,939 - src.regional_analysis - INFO - Starting Regional Analysis...
+2026-06-07 17:24:15,583 - src.regional_analysis - INFO - Saved Plot 11: Top 10 highest regions.
+2026-06-07 17:24:16,206 - src.regional_analysis - INFO - Saved Plot 12: Top 10 lowest regions.
+2026-06-07 17:24:17,461 - src.regional_analysis - INFO - Saved Plot 13: Grouped Rural/Urban by region.
+2026-06-07 17:24:18,636 - src.regional_analysis - INFO - Saved Plot 14: Covid Impact by region.
+2026-06-07 17:24:18,637 - src.regional_analysis - INFO - All regional analysis plots generated successfully.
+2026-06-07 17:24:18,638 - main_pipeline - INFO - Caching statistics to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\cached_stats.json
+2026-06-07 17:24:18,640 - main_pipeline - INFO - Running Report Generation stage.
+2026-06-07 17:24:18,641 - src.report_generator - INFO - Generating final insights report...
+2026-06-07 17:24:18,643 - src.report_generator - INFO - Insights report successfully written to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\unemployment_insights.md
+2026-06-07 17:24:18,645 - main_pipeline - INFO - FULL analysis pipeline finished successfully.
+2026-06-07 17:24:37,600 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:24:37,601 - main_pipeline - INFO - Executing EDA-only plotting.
+2026-06-07 17:24:37,601 - src.data_loader - INFO - Attempting to load dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\data\Unemployment in India.csv
+2026-06-07 17:24:37,609 - src.data_loader - INFO - Initial loaded shape: (768, 7)
+2026-06-07 17:24:37,610 - src.data_loader - INFO - Cleaned columns: ['Region', 'Date', 'Frequency', 'Estimated Unemployment Rate (%)', 'Estimated Employed', 'Estimated Labour Participation Rate (%)', 'Area']
+2026-06-07 17:24:37,619 - src.data_loader - INFO - Parsing Date column: Date
+2026-06-07 17:24:37,626 - src.data_loader - INFO - Cleaned dataset shape: (740, 7)
+2026-06-07 17:24:37,627 - src.data_loader - INFO - Data types:
+Region                                             object
+Date                                       datetime64[ns]
+Frequency                                          object
+Estimated Unemployment Rate (%)                   float64
+Estimated Employed                                float64
+Estimated Labour Participation Rate (%)           float64
+Area                                               object
+dtype: object
+2026-06-07 17:24:37,632 - src.data_loader - INFO - Missing value counts:
+Region                                     0
+Date                                       0
+Frequency                                  0
+Estimated Unemployment Rate (%)            0
+Estimated Employed                         0
+Estimated Labour Participation Rate (%)    0
+Area                                       0
+dtype: int64
+2026-06-07 17:24:37,635 - src.data_loader - INFO - Date range: 2019-05-31 00:00:00 to 2020-06-30 00:00:00
+2026-06-07 17:24:37,636 - src.data_loader - INFO - Unique regions count: 28
+2026-06-07 17:24:37,637 - src.preprocessor - INFO - Standardising text case for Region and Area columns.
+2026-06-07 17:24:37,640 - src.preprocessor - INFO - Imputing missing values...
+2026-06-07 17:24:37,642 - src.preprocessor - INFO - Adding date-derived columns (month, year, quarter, covid_period)...
+2026-06-07 17:24:37,658 - src.preprocessor - INFO - Detecting outliers in the unemployment rate column...
+2026-06-07 17:24:37,663 - src.preprocessor - INFO - IQR Outlier detection bounds: [-12.19, 32.73]. Detected 35 outliers (4.73% of data).
+2026-06-07 17:24:37,663 - src.eda - INFO - Starting Exploratory Data Analysis...
+2026-06-07 17:24:37,669 - src.eda - INFO - Computed basic summary statistics.
+2026-06-07 17:24:38,253 - src.eda - INFO - Saved Plot 01: Distribution.
+2026-06-07 17:24:38,658 - src.eda - INFO - Saved Plot 02: Rural vs Urban Comparison.
+2026-06-07 17:24:39,744 - src.eda - INFO - Saved Plot 03: Avg by Region.
+2026-06-07 17:24:40,472 - src.eda - INFO - Saved Plot 04: Scatter & Regression.
+2026-06-07 17:24:41,143 - src.eda - INFO - Saved Plot 05: Correlation Heatmap.
+2026-06-07 17:24:41,575 - src.eda - INFO - Saved Plot 06: Covid Period Comparison.
+2026-06-07 17:24:41,576 - src.eda - INFO - All EDA plots generated successfully.
+2026-06-07 17:24:41,577 - main_pipeline - INFO - EDA plotting finished successfully.
+2026-06-07 17:27:25,988 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:27:25,990 - main_pipeline - INFO - Executing FULL analysis pipeline.
+2026-06-07 17:27:25,990 - src.data_loader - INFO - Attempting to load dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\data\Unemployment in India.csv
+2026-06-07 17:27:26,020 - src.data_loader - INFO - Initial loaded shape: (768, 7)
+2026-06-07 17:27:26,025 - src.data_loader - INFO - Cleaned columns: ['Region', 'Date', 'Frequency', 'Estimated Unemployment Rate (%)', 'Estimated Employed', 'Estimated Labour Participation Rate (%)', 'Area']
+2026-06-07 17:27:26,054 - src.data_loader - INFO - Parsing Date column: Date
+2026-06-07 17:27:26,084 - src.data_loader - INFO - Cleaned dataset shape: (740, 7)
+2026-06-07 17:27:26,085 - src.data_loader - INFO - Data types:
+Region                                             object
+Date                                       datetime64[ns]
+Frequency                                          object
+Estimated Unemployment Rate (%)                   float64
+Estimated Employed                                float64
+Estimated Labour Participation Rate (%)           float64
+Area                                               object
+dtype: object
+2026-06-07 17:27:26,091 - src.data_loader - INFO - Missing value counts:
+Region                                     0
+Date                                       0
+Frequency                                  0
+Estimated Unemployment Rate (%)            0
+Estimated Employed                         0
+Estimated Labour Participation Rate (%)    0
+Area                                       0
+dtype: int64
+2026-06-07 17:27:26,095 - src.data_loader - INFO - Date range: 2019-05-31 00:00:00 to 2020-06-30 00:00:00
+2026-06-07 17:27:26,098 - src.data_loader - INFO - Unique regions count: 28
+2026-06-07 17:27:26,099 - src.preprocessor - INFO - Standardising text case for Region and Area columns.
+2026-06-07 17:27:26,102 - src.preprocessor - INFO - Imputing missing values...
+2026-06-07 17:27:26,105 - src.preprocessor - INFO - Adding date-derived columns (month, year, quarter, covid_period)...
+2026-06-07 17:27:26,136 - src.preprocessor - INFO - Detecting outliers in the unemployment rate column...
+2026-06-07 17:27:26,142 - src.preprocessor - INFO - IQR Outlier detection bounds: [-12.19, 32.73]. Detected 35 outliers (4.73% of data).
+2026-06-07 17:27:26,143 - main_pipeline - INFO - Running EDA stage.
+2026-06-07 17:27:26,143 - src.eda - INFO - Starting Exploratory Data Analysis...
+2026-06-07 17:27:26,149 - src.eda - INFO - Computed basic summary statistics.
+2026-06-07 17:27:26,812 - src.eda - INFO - Saved Plot 01: Distribution.
+2026-06-07 17:27:27,229 - src.eda - INFO - Saved Plot 02: Rural vs Urban Comparison.
+2026-06-07 17:27:28,357 - src.eda - INFO - Saved Plot 03: Avg by Region.
+2026-06-07 17:27:29,127 - src.eda - INFO - Saved Plot 04: Scatter & Regression.
+2026-06-07 17:27:29,799 - src.eda - INFO - Saved Plot 05: Correlation Heatmap.
+2026-06-07 17:27:30,220 - src.eda - INFO - Saved Plot 06: Covid Period Comparison.
+2026-06-07 17:27:30,220 - src.eda - INFO - All EDA plots generated successfully.
+2026-06-07 17:27:30,221 - main_pipeline - INFO - Running Time-Series Analysis stage.
+2026-06-07 17:27:30,221 - src.time_series_analysis - INFO - Starting Time-Series Analysis...
+2026-06-07 17:27:30,267 - src.time_series_analysis - INFO - Peak national unemployment of 24.88% occurred in May 2020
+2026-06-07 17:27:30,938 - src.time_series_analysis - INFO - Saved Plot 07: Unemployment over time.
+2026-06-07 17:27:30,946 - src.time_series_analysis - INFO - Top 5 affected regions during Covid: ['Puducherry', 'Jharkhand', 'Haryana', 'Bihar', 'Tripura']
+2026-06-07 17:27:31,748 - src.time_series_analysis - INFO - Saved Plot 08: Monthly trend by region.
+2026-06-07 17:27:32,417 - src.time_series_analysis - INFO - Saved Plot 09: Rolling average.
+2026-06-07 17:27:33,522 - src.time_series_analysis - INFO - Saved Plot 10: Side-by-side trends.
+2026-06-07 17:27:33,533 - src.time_series_analysis - INFO - Highest Covid spike region: Puducherry with spike of +37.36%
+2026-06-07 17:27:33,533 - src.time_series_analysis - INFO - National pre-Covid mean: 9.51%, post-Covid mean: 17.77%. Increase of 86.91%
+2026-06-07 17:27:33,534 - main_pipeline - INFO - Running Regional Analysis stage.
+2026-06-07 17:27:33,534 - src.regional_analysis - INFO - Starting Regional Analysis...
+2026-06-07 17:27:34,128 - src.regional_analysis - INFO - Saved Plot 11: Top 10 highest regions.
+2026-06-07 17:27:34,767 - src.regional_analysis - INFO - Saved Plot 12: Top 10 lowest regions.
+2026-06-07 17:27:35,987 - src.regional_analysis - INFO - Saved Plot 13: Grouped Rural/Urban by region.
+2026-06-07 17:27:37,211 - src.regional_analysis - INFO - Saved Plot 14: Covid Impact by region.
+2026-06-07 17:27:37,212 - src.regional_analysis - INFO - All regional analysis plots generated successfully.
+2026-06-07 17:27:37,213 - main_pipeline - INFO - Caching statistics to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\cached_stats.json
+2026-06-07 17:27:37,215 - main_pipeline - INFO - Running Report Generation stage.
+2026-06-07 17:27:37,216 - src.report_generator - INFO - Generating final insights report...
+2026-06-07 17:27:37,219 - src.report_generator - INFO - Insights report successfully written to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\unemployment_insights.md
+2026-06-07 17:27:37,219 - main_pipeline - INFO - FULL analysis pipeline finished successfully.
+2026-06-07 17:27:58,764 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:27:58,765 - main_pipeline - INFO - Executing EDA-only plotting.
+2026-06-07 17:27:58,766 - src.data_loader - INFO - Attempting to load dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\data\Unemployment in India.csv
+2026-06-07 17:27:58,776 - src.data_loader - INFO - Initial loaded shape: (768, 7)
+2026-06-07 17:27:58,777 - src.data_loader - INFO - Cleaned columns: ['Region', 'Date', 'Frequency', 'Estimated Unemployment Rate (%)', 'Estimated Employed', 'Estimated Labour Participation Rate (%)', 'Area']
+2026-06-07 17:27:58,784 - src.data_loader - INFO - Parsing Date column: Date
+2026-06-07 17:27:58,791 - src.data_loader - INFO - Cleaned dataset shape: (740, 7)
+2026-06-07 17:27:58,791 - src.data_loader - INFO - Data types:
+Region                                             object
+Date                                       datetime64[ns]
+Frequency                                          object
+Estimated Unemployment Rate (%)                   float64
+Estimated Employed                                float64
+Estimated Labour Participation Rate (%)           float64
+Area                                               object
+dtype: object
+2026-06-07 17:27:58,795 - src.data_loader - INFO - Missing value counts:
+Region                                     0
+Date                                       0
+Frequency                                  0
+Estimated Unemployment Rate (%)            0
+Estimated Employed                         0
+Estimated Labour Participation Rate (%)    0
+Area                                       0
+dtype: int64
+2026-06-07 17:27:58,797 - src.data_loader - INFO - Date range: 2019-05-31 00:00:00 to 2020-06-30 00:00:00
+2026-06-07 17:27:58,798 - src.data_loader - INFO - Unique regions count: 28
+2026-06-07 17:27:58,799 - src.preprocessor - INFO - Standardising text case for Region and Area columns.
+2026-06-07 17:27:58,801 - src.preprocessor - INFO - Imputing missing values...
+2026-06-07 17:27:58,803 - src.preprocessor - INFO - Adding date-derived columns (month, year, quarter, covid_period)...
+2026-06-07 17:27:58,813 - src.preprocessor - INFO - Detecting outliers in the unemployment rate column...
+2026-06-07 17:27:58,817 - src.preprocessor - INFO - IQR Outlier detection bounds: [-12.19, 32.73]. Detected 35 outliers (4.73% of data).
+2026-06-07 17:27:58,817 - src.eda - INFO - Starting Exploratory Data Analysis...
+2026-06-07 17:27:58,822 - src.eda - INFO - Computed basic summary statistics.
+2026-06-07 17:27:59,418 - src.eda - INFO - Saved Plot 01: Distribution.
+2026-06-07 17:27:59,802 - src.eda - INFO - Saved Plot 02: Rural vs Urban Comparison.
+2026-06-07 17:28:00,959 - src.eda - INFO - Saved Plot 03: Avg by Region.
+2026-06-07 17:28:01,673 - src.eda - INFO - Saved Plot 04: Scatter & Regression.
+2026-06-07 17:28:02,308 - src.eda - INFO - Saved Plot 05: Correlation Heatmap.
+2026-06-07 17:28:02,740 - src.eda - INFO - Saved Plot 06: Covid Period Comparison.
+2026-06-07 17:28:02,740 - src.eda - INFO - All EDA plots generated successfully.
+2026-06-07 17:28:02,741 - main_pipeline - INFO - EDA plotting finished successfully.
+2026-06-07 17:33:44,938 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:33:44,939 - main_pipeline - INFO - Executing FULL analysis pipeline.
+2026-06-07 17:33:44,940 - src.data_loader - INFO - Attempting to load dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\data\Unemployment in India.csv
+2026-06-07 17:33:44,960 - src.data_loader - INFO - Initial loaded shape: (768, 7)
+2026-06-07 17:33:44,962 - src.data_loader - INFO - Cleaned columns: ['Region', 'Date', 'Frequency', 'Estimated Unemployment Rate (%)', 'Estimated Employed', 'Estimated Labour Participation Rate (%)', 'Area']
+2026-06-07 17:33:44,990 - src.data_loader - INFO - Parsing Date column: Date
+2026-06-07 17:33:45,012 - src.data_loader - INFO - Cleaned dataset shape: (740, 7)
+2026-06-07 17:33:45,013 - src.data_loader - INFO - Data types:
+Region                                             object
+Date                                       datetime64[ns]
+Frequency                                          object
+Estimated Unemployment Rate (%)                   float64
+Estimated Employed                                float64
+Estimated Labour Participation Rate (%)           float64
+Area                                               object
+dtype: object
+2026-06-07 17:33:45,019 - src.data_loader - INFO - Missing value counts:
+Region                                     0
+Date                                       0
+Frequency                                  0
+Estimated Unemployment Rate (%)            0
+Estimated Employed                         0
+Estimated Labour Participation Rate (%)    0
+Area                                       0
+dtype: int64
+2026-06-07 17:33:45,023 - src.data_loader - INFO - Date range: 2019-05-31 00:00:00 to 2020-06-30 00:00:00
+2026-06-07 17:33:45,026 - src.data_loader - INFO - Unique regions count: 28
+2026-06-07 17:33:45,027 - src.preprocessor - INFO - Standardising text case for Region and Area columns.
+2026-06-07 17:33:45,100 - src.preprocessor - INFO - Imputing missing values...
+2026-06-07 17:33:45,104 - src.preprocessor - INFO - Adding date-derived columns (month, year, quarter, covid_period)...
+2026-06-07 17:33:45,139 - src.preprocessor - INFO - Detecting outliers in the unemployment rate column...
+2026-06-07 17:33:45,150 - src.preprocessor - INFO - IQR Outlier detection bounds: [-12.19, 32.73]. Detected 35 outliers (4.73% of data).
+2026-06-07 17:33:45,151 - main_pipeline - INFO - Running EDA stage.
+2026-06-07 17:33:45,151 - src.eda - INFO - Starting Exploratory Data Analysis...
+2026-06-07 17:33:45,158 - src.eda - INFO - Computed basic summary statistics.
+2026-06-07 17:33:45,799 - src.eda - INFO - Saved Plot 01: Distribution.
+2026-06-07 17:33:46,242 - src.eda - INFO - Saved Plot 02: Rural vs Urban Comparison.
+2026-06-07 17:33:47,352 - src.eda - INFO - Saved Plot 03: Avg by Region.
+2026-06-07 17:33:48,010 - src.eda - INFO - Saved Plot 04: Scatter & Regression.
+2026-06-07 17:33:48,673 - src.eda - INFO - Saved Plot 05: Correlation Heatmap.
+2026-06-07 17:33:49,104 - src.eda - INFO - Saved Plot 06: Covid Period Comparison.
+2026-06-07 17:33:49,104 - src.eda - INFO - All EDA plots generated successfully.
+2026-06-07 17:33:49,105 - main_pipeline - INFO - Running Time-Series Analysis stage.
+2026-06-07 17:33:49,106 - src.time_series_analysis - INFO - Starting Time-Series Analysis...
+2026-06-07 17:33:49,110 - src.time_series_analysis - INFO - Peak national unemployment of 24.88% occurred in May 2020
+2026-06-07 17:33:49,677 - src.time_series_analysis - INFO - Saved Plot 07: Unemployment over time.
+2026-06-07 17:33:49,686 - src.time_series_analysis - INFO - Top 5 affected regions during Covid: ['Puducherry', 'Jharkhand', 'Haryana', 'Bihar', 'Tripura']
+2026-06-07 17:33:50,447 - src.time_series_analysis - INFO - Saved Plot 08: Monthly trend by region.
+2026-06-07 17:33:51,116 - src.time_series_analysis - INFO - Saved Plot 09: Rolling average.
+2026-06-07 17:33:52,142 - src.time_series_analysis - INFO - Saved Plot 10: Side-by-side trends.
+2026-06-07 17:33:52,147 - src.time_series_analysis - INFO - Highest Covid spike region: Puducherry with spike of +37.36%
+2026-06-07 17:33:52,147 - src.time_series_analysis - INFO - National pre-Covid mean: 9.51%, post-Covid mean: 17.77%. Increase of 86.91%
+2026-06-07 17:33:52,148 - main_pipeline - INFO - Running Regional Analysis stage.
+2026-06-07 17:33:52,149 - src.regional_analysis - INFO - Starting Regional Analysis...
+2026-06-07 17:33:52,730 - src.regional_analysis - INFO - Saved Plot 11: Top 10 highest regions.
+2026-06-07 17:33:53,334 - src.regional_analysis - INFO - Saved Plot 12: Top 10 lowest regions.
+2026-06-07 17:33:54,579 - src.regional_analysis - INFO - Saved Plot 13: Grouped Rural/Urban by region.
+2026-06-07 17:33:55,716 - src.regional_analysis - INFO - Saved Plot 14: Covid Impact by region.
+2026-06-07 17:33:55,717 - src.regional_analysis - INFO - All regional analysis plots generated successfully.
+2026-06-07 17:33:55,717 - main_pipeline - INFO - Caching statistics to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\cached_stats.json
+2026-06-07 17:33:55,721 - main_pipeline - INFO - Running Report Generation stage.
+2026-06-07 17:33:55,721 - src.report_generator - INFO - Generating final insights report...
+2026-06-07 17:33:55,725 - src.report_generator - INFO - Insights report successfully written to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\unemployment_insights.md
+2026-06-07 17:33:55,725 - main_pipeline - INFO - FULL analysis pipeline finished successfully.
+2026-06-07 17:34:21,248 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:34:21,249 - main_pipeline - INFO - Executing EDA-only plotting.
+2026-06-07 17:34:21,250 - src.data_loader - INFO - Attempting to load dataset from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\data\Unemployment in India.csv
+2026-06-07 17:34:21,258 - src.data_loader - INFO - Initial loaded shape: (768, 7)
+2026-06-07 17:34:21,259 - src.data_loader - INFO - Cleaned columns: ['Region', 'Date', 'Frequency', 'Estimated Unemployment Rate (%)', 'Estimated Employed', 'Estimated Labour Participation Rate (%)', 'Area']
+2026-06-07 17:34:21,266 - src.data_loader - INFO - Parsing Date column: Date
+2026-06-07 17:34:21,276 - src.data_loader - INFO - Cleaned dataset shape: (740, 7)
+2026-06-07 17:34:21,277 - src.data_loader - INFO - Data types:
+Region                                             object
+Date                                       datetime64[ns]
+Frequency                                          object
+Estimated Unemployment Rate (%)                   float64
+Estimated Employed                                float64
+Estimated Labour Participation Rate (%)           float64
+Area                                               object
+dtype: object
+2026-06-07 17:34:21,281 - src.data_loader - INFO - Missing value counts:
+Region                                     0
+Date                                       0
+Frequency                                  0
+Estimated Unemployment Rate (%)            0
+Estimated Employed                         0
+Estimated Labour Participation Rate (%)    0
+Area                                       0
+dtype: int64
+2026-06-07 17:34:21,284 - src.data_loader - INFO - Date range: 2019-05-31 00:00:00 to 2020-06-30 00:00:00
+2026-06-07 17:34:21,285 - src.data_loader - INFO - Unique regions count: 28
+2026-06-07 17:34:21,286 - src.preprocessor - INFO - Standardising text case for Region and Area columns.
+2026-06-07 17:34:21,291 - src.preprocessor - INFO - Imputing missing values...
+2026-06-07 17:34:21,298 - src.preprocessor - INFO - Adding date-derived columns (month, year, quarter, covid_period)...
+2026-06-07 17:34:21,313 - src.preprocessor - INFO - Detecting outliers in the unemployment rate column...
+2026-06-07 17:34:21,318 - src.preprocessor - INFO - IQR Outlier detection bounds: [-12.19, 32.73]. Detected 35 outliers (4.73% of data).
+2026-06-07 17:34:21,319 - src.eda - INFO - Starting Exploratory Data Analysis...
+2026-06-07 17:34:21,323 - src.eda - INFO - Computed basic summary statistics.
+2026-06-07 17:34:21,867 - src.eda - INFO - Saved Plot 01: Distribution.
+2026-06-07 17:34:22,275 - src.eda - INFO - Saved Plot 02: Rural vs Urban Comparison.
+2026-06-07 17:34:23,326 - src.eda - INFO - Saved Plot 03: Avg by Region.
+2026-06-07 17:34:23,989 - src.eda - INFO - Saved Plot 04: Scatter & Regression.
+2026-06-07 17:34:24,617 - src.eda - INFO - Saved Plot 05: Correlation Heatmap.
+2026-06-07 17:34:25,096 - src.eda - INFO - Saved Plot 06: Covid Period Comparison.
+2026-06-07 17:34:25,096 - src.eda - INFO - All EDA plots generated successfully.
+2026-06-07 17:34:25,097 - main_pipeline - INFO - EDA plotting finished successfully.
+2026-06-07 17:35:07,595 - main_pipeline - INFO - Started pipeline run.
+2026-06-07 17:35:07,596 - main_pipeline - INFO - Executing Report Regeneration from cached file.
+2026-06-07 17:35:07,597 - main_pipeline - INFO - Reading cached statistics from: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\cached_stats.json
+2026-06-07 17:35:07,635 - src.report_generator - INFO - Generating final insights report...
+2026-06-07 17:35:07,645 - src.report_generator - INFO - Insights report successfully written to: C:\Users\DHRUVIL\OneDrive\Documents\Oasis_InfoByte\OIBSIP\Soni_Dhruvil_Jigar-Task_2\reports\unemployment_insights.md
+2026-06-07 17:35:07,647 - main_pipeline - INFO - Report regeneration finished successfully.

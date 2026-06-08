@@ -26,24 +26,12 @@ class Config:
         TARGET_COL_PATTERNS: List of potential target column name strings.
     """
 
-    BASE_DIR: Path = Path(
-        "C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/sales-prediction"
-    ).resolve()
-    DATA_PATH: Path = Path(
-        "C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/sales-prediction/data"
-    ).resolve()
-    MODEL_SAVE_PATH: Path = Path(
-        "C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/sales-prediction/models"
-    ).resolve()
-    REPORTS_DIR: Path = Path(
-        "C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/sales-prediction/reports"
-    ).resolve()
-    FIGURES_DIR: Path = Path(
-        "C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/sales-prediction/reports/figures"
-    ).resolve()
-    LOGS_DIR: Path = Path(
-        "C:/Users/DHRUVIL/OneDrive/Documents/Oasis_InfoByte/OIBSIP/sales-prediction/logs"
-    ).resolve()
+    BASE_DIR: Path = Path(__file__).resolve().parent.parent
+    DATA_PATH: Path = BASE_DIR / "data"
+    MODEL_SAVE_PATH: Path = BASE_DIR / "models"
+    REPORTS_DIR: Path = BASE_DIR / "reports"
+    FIGURES_DIR: Path = REPORTS_DIR / "figures"
+    LOGS_DIR: Path = BASE_DIR / "logs"
 
     TEST_SIZE: float = 0.2
     RANDOM_STATE: int = 42
